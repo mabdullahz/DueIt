@@ -5,6 +5,10 @@ const keys = require('./config/keys');
 
 const app = express();
 
+app.get('/', (req,res) =>{
+	res.send({hi : "Ali"})
+});
+
 passport.use(
 	new GoogleStrategy({
 		clientID: keys.googleClientID,
