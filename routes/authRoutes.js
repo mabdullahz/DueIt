@@ -3,7 +3,8 @@ const passport = require('passport');
 module.exports = (app) => {
 	
 	app.get(
-		'/', (req, res) => {
+		'/', 
+		(req, res) => {
 			res.send({Hello: "World"});
 		}
 	);
