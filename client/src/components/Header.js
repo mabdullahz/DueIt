@@ -18,7 +18,7 @@ class Header extends Component{
                         </a>
                     </li>
                     <li>
-                    <Link to={this.props.auth ? '/CreateEvent' : '/'}>
+                    <Link to={'/CreateEvent'}>
                         Create Event
                     </Link>
                     </li>
@@ -34,7 +34,7 @@ class Header extends Component{
                         </a>
                     </li>
                     <li>
-                    <Link to={this.props.auth ? '/CreateEvent' : '/'}>
+                    <Link to={'/CreateEvent'}>
                         Create Event
                     </Link>
                     </li>
