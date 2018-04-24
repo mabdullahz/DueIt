@@ -61,6 +61,13 @@ body{
 	margin:auto;
 }
 
+.main-signup-wrap{
+	width: 100%; 
+	height: 100%;
+	position: absolute;
+	overflow: hidden;
+}
+
 .right-div-signup{
 	margin-left: 620px;
 }
@@ -73,22 +80,11 @@ body{
 	height: 100%;
 }
 
-.main-signup-wrap{
-	width: 100%; 
-	height: 100%;
-	position: absolute;
-	overflow: hidden;
-}
-
-.whole{
-	width:100%;
-	height:100%;
-}
 
 .logo-signup-div{
 	width:50%;
 	display: block;
 	margin:auto;
-	margin-top: 10%;
-	margin-bottom: 10%;
+	margin-top: 15%;
+	margin-bottom: 7%;
 }
