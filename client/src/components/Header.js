@@ -1,59 +1,35 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import logo from './resources/logoHeader.png';
 
 
 class Header extends Component{
-    renderContent(){
-        switch (this.props.auth) {
-            case null:
-                return;
-
-            case false:
-                return(
-                    <li>
-                        <a href="/auth/google">
-                            Login With Google
-                        </a>
-                    </li>
-                )
-        
-            default:
-                return (
-                    <li>
-                        <a href = "/api/logout">
-                            Log Out
-                        </a>
-                    </li>
-                )
-        }
-    }
-
     render(){
 //        console.log(this.props)
         return(
             <nav>
                 <div className = 'nav-wrapper'>
-                    <Link to={this.props.auth ? '/surveys' : '/'}  
+                    <Link to={this.props.auth ? '/dashboard' : '/'}  
                     className= "brand-logo left"
                     >
-                        Due It!
+                    <img src={logo}  className="headerLogo"/>
                     </Link>
-                    <ul className="right">
-                        {this.renderContent()}
-                    </ul>
+                    <a href = "/api/logout" className="button-logout ">
+                            Log Out
+                    </a>
                 </div>
             </nav>
         );
     }
 }
 
- //function mapStateToProps(state){
+ // function mapStateToProps(state){
  //   return {auth: state.auth}     
  //}
 function mapStateToProps({ auth }){
     return {auth}     
- }
+}
 
 
 export default connect(mapStateToProps)(Header);
