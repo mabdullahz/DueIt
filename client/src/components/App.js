@@ -1,30 +1,47 @@
 import React, { Component } from 'react';
-import { BrowserRouter,Route } from "react-router-dom";
+import { BrowserRouter,Route , Link, Redirect} from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from '../actions';
 
 import Header from './Header'
-import Landing from './Landing';
+import SignUp from './SignUp';
+import Footer from './Footer';
 import CreateEvent from './CreateEvent';
-const Dashboard = () => <h2>Dashboard</h2>
-const SurveyNew = () => <h2>SurveyNew</h2>
+import Dashboard from './Dashboard';
+import './style.css';
 
 
 class App extends Component {
+
+
 	componentDidMount(){
 		this.props.fetchUser();
 	}
 
+	renderContent(){
+	    if(this.props.auth){
+	     	return(Dashboard)
+	    }
+	    else{
+	    	return(SignUp)
+	    }
+	}
+
+	renderHeader(){
+		if(this.props.auth){
+			return(Header)
+		}
+	}
 	render(){
 		return (
-			<div className="container">
+			<div>
 				<BrowserRouter>
 					<div>
-						<Header />
-						<Route exact={true} path='/' component={Landing} />
+						<Route component={this.renderHeader()} />
+						<Route path='/' component={this.renderContent()} />
 						<Route exact path='/CreateEvent' component={CreateEvent} />
-						<Route exact path='/surveys' component={Dashboard} />
-						<Route path='/surveys/new' component={SurveyNew} />
+
+						<Footer />
 					</div>
 				</BrowserRouter>
 			</div>
@@ -32,4 +49,8 @@ class App extends Component {
 	}
 };
 
-export default connect(null, actions)(App);
+function mapStateToProps({ auth }){
+    return {auth}     
+}
+
+export default connect(mapStateToProps, actions)(App)

@@ -1,0 +1,94 @@
+html{
+	height: 100%;
+}
+
+body{
+	min-height: 100%;
+    background-color: rgb(82,45,109);
+}
+
+#root{
+	min-height: 100%;
+	min-width: 100%;
+	position: absolute;
+}
+
+.footer-bootom{
+	background-color: rgb(82,45,109);
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+.bottom-copyright{
+	float: right;
+}
+
+.nav-wrapper{
+	background-color: rgb(235,235,235);
+	padding-right: 1%;
+	padding-left: 1%;
+}
+
+.dueit-login-button{
+	margin: auto;
+	background-color: rgb(82,45,109);
+}
+
+.dueit-login-button:hover{
+	background-color: rgb(235,235,235);
+	color: rgb(82,45,109);
+}
+
+.footer-bootom{
+	background-color: rgb(235,235,235);
+	padding-right: 1%;
+	padding-left: 1%;
+}
+
+.headerLogo{
+	width:8.5%;
+	margin-left: 3%;
+}
+
+.button-logout{
+	float: right;
+	color:rgb(82,45,109);
+}
+
+.headingDashboard{
+	margin:auto;
+}
+
+.right-div-signup{
+	margin-left: 620px;
+}
+
+.left-div-signup{
+	width: 35%; 
+	height: 100%; 
+	float: left;
+	background-color: rgb(235,235,235);
+	height: 100%;
+}
+
+.main-signup-wrap{
+	width: 100%; 
+	height: 100%;
+	position: absolute;
+	overflow: hidden;
+}
+
+.whole{
+	width:100%;
+	height:100%;
+}
+
+.logo-signup-div{
+	width:50%;
+	display: block;
+	margin:auto;
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
