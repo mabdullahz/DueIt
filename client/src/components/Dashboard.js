@@ -6,9 +6,15 @@ import { Link } from "react-router-dom";
 class Dashboard extends Component{
     render(){
         return(
-            <h1 className="headingDashboard">
-                Dashboard! 
-            </h1>
+        	<div>
+	            <h1 className="general-heading">
+	                Dashboard! 
+	            </h1>
+
+	            <div style ={{textAlign: 'center'}} >
+		        	<a className="waves-effect waves-light btn dueit-login-button-inverted" href="/createevent">Create New Event</a>
+		        </div>
+	        </div>
         );
     }
 }

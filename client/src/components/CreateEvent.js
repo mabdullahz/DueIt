@@ -4,44 +4,50 @@ import { Link } from "react-router-dom";
 
 class CreateEvent extends Component{
     render(){
-    //        console.log(this.props)
         return(
-            <div>
-                <h1 style ={{color: 'purple'}}>
-                Create  Event
-                </h1>
+            <div className="div-centered">
+                <h2 className="general-heading div-center-aligned">
+                    Create Event
+                </h2>
 
-                <select  style ={{display: 'inline', width:'30%',color: 'purple'}}>
-                    <option value="private">Private Event</option>
-                    <option value="public">Public Event</option>
-                </select>
+                <div className="div-centered">
+                    <h5 style={{display: 'inline-block', color:"rgb(235,235,235)", padding: "0px 20px"}}>
+                        Event type: 
+                    </h5>
 
-                <div class="row">
-                    <form class="col s12">
+                    <select  style ={{display: 'inline-block', width:'30%',color: "rgb(82,45,109)"}}>
+                        <option value="private">Private Event</option>
+                        <option value="public">Public Event</option>
+                    </select>
+                </div>
 
-                        <div class="row">
-                            <div class="input-field col s6"  style ={{display: 'inline', width:'20%'}}>
-                                <input placeholder="Event Name" id="event_name" type="text" class="validate"></input>
+                <div className="row div-center-aligned">
+                    <form className="col s12">
+
+                        <div className="row div-center-aligned">
+                            <div className="input-field col s6"  style ={{display: 'inline-block', width:'25%', color:'rgb(235,235,235)'}}>
+                                <input placeholder="Event Name" id="event_name" type="text" className="validate"></input>
                             </div>
 
-                            <div class="input-field col s6"  style ={{display: 'inline', width:'40%'}}>
-                                <input placeholder="Event Description" id="event_description" type="text" class="validate"></input>
+                            <div className="input-field col s6"  style ={{display: 'inline-block', width:'25%', color:'rgb(235,235,235)'}}>
+                                <input placeholder="Event Description" id="event_description" type="text" className="validate"></input>
                             </div>
 
                         </div>
 
-
-                        <div class="row">
-                            <div class="input-field col s6"  style ={{display: 'inline', width:'20%'}}>
-                                <input placeholder="Event time" id="event_time" type="text" class="validate"></input>
+                        <div className="row div-center-aligned">
+                            <div className="input-field col s6"  style ={{display: 'inline', width:'25%', color:'rgb(235,235,235)'}}>
+                                <input placeholder="Event time" id="event_time" type="text" className="validate"></input>
                             </div>
 
-                            <div class="input-field col s6"  style ={{display: 'inline', width:'20%'}}>
-                                <input placeholder="Event location" id="event_location" type="text" class="validate"></input>
+                            <div className="input-field col s6"  style ={{display: 'inline', width:'25%', color:'rgb(235,235,235)'}}>
+                                <input placeholder="Event location" id="event_location" type="text" className="validate"></input>
                             </div>
-
-                            <a className="waves-effect waves-light btn" style ={{backgroundColor: 'green'}}>Create Event</a>
                         </div>
+                        <div style ={{textAlign: 'center'}} >
+                            <a className="waves-effect waves-light btn dueit-login-button-inverted" href="#">Create Event</a>
+                        </div>
+                        
 
                     </form>
                 </div>

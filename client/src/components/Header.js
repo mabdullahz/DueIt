@@ -10,12 +10,10 @@ class Header extends Component{
         return(
             <nav>
                 <div className = 'nav-wrapper'>
-                    <Link to={this.props.auth ? '/dashboard' : '/'} 
-                    className= "brand-logo left"
-                    >
-                    <img src={logo}  className="headerLogo"/>
+                    <Link to={this.props.auth ? '/dashboard' : '/'} className= "headerLogo">
+                        <img src={logo} className="headerLogo"/>
                     </Link>
-                    <a href = "/api/logout" className="button-logout ">
+                    <a href = "/api/logout" className="button-logout">
                             Log Out
                     </a>
                 </div>

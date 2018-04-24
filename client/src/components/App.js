@@ -38,7 +38,8 @@ class App extends Component {
 				<BrowserRouter>
 					<div>
 						<Route component={this.renderHeader()} />
-						<Route path='/' component={this.renderContent()} />
+						<Route exact path='/dashboard' component={this.renderContent()} />
+						<Route exact path='/' component={this.renderContent()} />
 						<Route exact path='/CreateEvent' component={CreateEvent} />
 
 						<Footer />

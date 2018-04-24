@@ -5,6 +5,7 @@ html{
 body{
 	min-height: 100%;
     background-color: rgb(82,45,109);
+    font-family: 'Expletus Sans', cursive;
 }
 
 #root{
@@ -41,6 +42,27 @@ body{
 	color: rgb(82,45,109);
 }
 
+.dueit-login-button:focus{
+	background-color: black;
+	color: rgb(235,235,235);
+}
+
+.dueit-login-button-inverted{
+	margin: auto;
+	background-color: rgb(235,235,235);
+	color: rgb(82,45,109);
+}
+
+.dueit-login-button-inverted:hover{
+	background-color: rgb(82,45,109);
+	color: rgb(235,235,235);
+}
+
+.dueit-login-button-inverted:focus{
+	background-color: black;
+	color: rgb(235,235,235);
+}
+
 .footer-bootom{
 	background-color: rgb(235,235,235);
 	padding-right: 1%;
@@ -48,7 +70,7 @@ body{
 }
 
 .headerLogo{
-	width:8.5%;
+	height:100%;
 	margin-left: 3%;
 }
 
@@ -91,4 +113,21 @@ body{
 	margin:auto;
 	margin-top: 10%;
 	margin-bottom: 10%;
+}
+
+.header-search-bar{
+	float:right;
+	padding-right: 20px;
+}
+
+.general-heading{
+	color: rgb(235,235,235);
+}
+
+.div-center-aligned{
+	text-align: center;
+}
+
+.div-left-aligned{
+	text-align: left;
 }
