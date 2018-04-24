@@ -145,3 +145,33 @@ body{
 	padding-left:2%;
 	max-width:10%;
 }
+.mainDiv{
+	padding-top:5%;
+	padding-left:5%;
+	width:100%;
+	height:100%;
+	color:rgb(82,41,109);
+	text-align:center;
+	font-style:bold;
+	display:flex;
+}
+.leftDiv{
+	flex:80%;
+	background-color:white;
+	height:60%;
+	width: 60%;
+	max-width:65%;
+}
+.rightDiv{
+	flex:20%;
+	width:30%;
+	height:30%;
+	background-color:rgb(82,41,109);
+	color:white;
+	
+}
+.myCollapsible{
+	color:white;
+	background-color:rgb(82,41,109);
+	padding-top:2%;
+}
