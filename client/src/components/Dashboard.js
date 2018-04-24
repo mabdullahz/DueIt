@@ -12,7 +12,9 @@ class Dashboard extends Component{
 	            </h1>
 
 	            <div style ={{textAlign: 'center'}} >
-		        	<a className="waves-effect waves-light btn dueit-login-button-inverted" href="/createevent">Create New Event</a>
+		        	<Link to={"/createevent"} className="waves-effect waves-light btn dueit-login-button-inverted">
+		        		Create New Event
+		        	</Link>
 		        </div>
 	        </div>
         );
