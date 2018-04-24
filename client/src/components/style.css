@@ -68,7 +68,9 @@ body{
 	height:100%;
 	margin-left: 3%;
 }
-
+.myLogo{
+	max-height:50px;
+}
 .button-logout{
 	float: right;
 	color:rgb(82,45,109);
@@ -125,7 +127,19 @@ body{
 .div-center-aligned{
 	text-align: center;
 }
-
+;
 .div-left-aligned{
 	text-align: left;
+}
+.clipButton{
+	padding-left:2%;
+	max-width:20%;
+}
+.settingsButton{
+	padding-left:60%;
+	max-width:72%;
+}
+.userIco{
+	padding-left:2%;
+	max-width:10%;
 }

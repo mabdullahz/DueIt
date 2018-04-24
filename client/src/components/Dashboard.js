@@ -7,7 +7,7 @@ class Dashboard extends Component{
     render(){
         return(
         	<div>
-	            <h1 className="general-heading">
+	            <h1 className="general-heading"style ={{textAlign: 'center'}}>
 	                Dashboard! 
 	            </h1>
 
