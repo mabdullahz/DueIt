@@ -51,7 +51,7 @@ class CreateEvent extends Component{
                             <a className="waves-effect waves-light btn dueit-login-button-inverted" href="#">Create Event</a>
                         </div>
 
-
+                        <Calendar/>
                     </form>
                 </div>
 
