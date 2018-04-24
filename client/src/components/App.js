@@ -38,10 +38,10 @@ class App extends Component {
 				<BrowserRouter>
 					<div>
 						<Route component={this.renderHeader()} />
-						<Route exact path='/dashboard' component={this.renderContent()} />
-						<Route exact path='/' component={this.renderContent()} />
-						<Route exact path='/CreateEvent' component={CreateEvent} />
-						<Route exact path='/EventsPage' component={EventsPage} />
+						<Route exact path='/Dashboard' render={() =>(this.props.auth ? (<Dashboard />) : (<Redirect to = '/'/>) )}/>
+						<Route exact path='/' render={() =>(this.props.auth ? (<Dashboard />) : (<SignUp />) )}/>
+						<Route exact path='/CreateEvent' render={() =>(this.props.auth ? (<CreateEvent />) : (<Redirect to = '/'/>) )}/>
+						<Route exact path='/EventsPage' render={() =>(this.props.auth ? (<EventsPage />) : (<Redirect to = '/'/>) )}/>
 						<Footer />
 					</div>
 				</BrowserRouter>

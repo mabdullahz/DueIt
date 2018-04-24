@@ -15,12 +15,22 @@ class Header extends Component{
                     <Link to={this.props.auth ? '/dashboard' : '/'} className= "headerLogo">
                         <img src={logo} className="headerLogo"/>
                     </Link>
-					<a href="/EventsPage"><img src={clip} className="clipButton" /></a>
-					<a href="/settings"><img src={settings} className="settingsButton" /></a>
-					<a href="/dashboard"><img src={userIco} className="userIco" /></a>
+
+                    <Link to={this.props.auth ? '/EventsPage' : '/'} className= "clipButton">
+                        <img src={clip} className="clipButton"/>
+                    </Link>
+                    
                     <a href = "/api/logout" className="button-logout">
                             Log Out
                     </a>
+
+                    <Link to={this.props.auth ? '/settings' : '/'} className= "settingsButton">
+                        <img src={settings} className="settingsButton"/>
+                    </Link>
+
+                    <Link to={this.props.auth ? '/dashboard' : '/'} className= "userIco">
+                        <img src={userIco} className="userIco"/>
+                    </Link>
                 </div>
             </nav>
         );

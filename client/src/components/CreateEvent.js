@@ -24,7 +24,7 @@ class CreateEvent extends Component{
                 <div className="row div-center-aligned">
                     <form className="col s12">
 
-                        <div className="row div-center-aligned" style={{width: "50%"}}>
+                        <div className="row div-center-aligned" style={{width: "50%", padding: "4% 0%"}}>
                             <div className="input-field col s6"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
                                 <input placeholder="Event Name" id="event_name" type="text" className="validate"></input>
                             </div>
