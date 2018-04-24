@@ -5,6 +5,7 @@ import * as actions from '../actions';
 
 import Header from './Header'
 import Landing from './Landing';
+import CreateEvent from './CreateEvent';
 const Dashboard = () => <h2>Dashboard</h2>
 const SurveyNew = () => <h2>SurveyNew</h2>
 
@@ -21,6 +22,7 @@ class App extends Component {
 					<div>
 						<Header />
 						<Route exact={true} path='/' component={Landing} />
+						<Route exact path='/CreateEvent' component={CreateEvent} />
 						<Route exact path='/surveys' component={Dashboard} />
 						<Route path='/surveys/new' component={SurveyNew} />
 					</div>

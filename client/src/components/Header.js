@@ -11,20 +11,34 @@ class Header extends Component{
 
             case false:
                 return(
+                    <div>
                     <li>
                         <a href="/auth/google">
                             Login With Google
                         </a>
                     </li>
+                    <li>
+                    <Link to={'/CreateEvent'}>
+                        Create Event
+                    </Link>
+                    </li>
+                    </div>
                 )
-        
+
             default:
                 return (
+                    <div>
                     <li>
                         <a href = "/api/logout">
                             Log Out
                         </a>
                     </li>
+                    <li>
+                    <Link to={'/CreateEvent'}>
+                        Create Event
+                    </Link>
+                    </li>
+                    </div>
                 )
         }
     }
@@ -34,11 +48,14 @@ class Header extends Component{
         return(
             <nav>
                 <div className = 'nav-wrapper'>
-                    <Link to={this.props.auth ? '/surveys' : '/'}  
+                    <Link to={this.props.auth ? '/surveys' : '/'}
                     className= "brand-logo left"
                     >
                         Due It!
                     </Link>
+
+
+
                     <ul className="right">
                         {this.renderContent()}
                     </ul>
@@ -49,10 +66,10 @@ class Header extends Component{
 }
 
  //function mapStateToProps(state){
- //   return {auth: state.auth}     
+ //   return {auth: state.auth}
  //}
 function mapStateToProps({ auth }){
-    return {auth}     
+    return {auth}
  }
 
 
