@@ -41,6 +41,7 @@ class CreateEvent extends Component{
                         <div className="row div-center-aligned" style={{width: "50%"}}>
                             <div className="input-field col s6"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
                                 <input placeholder="Event time" id="event_time" type="text" className="validate"></input>
+                                <Calendar/>
                             </div>
 
                             <div className="input-field col s6"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
@@ -50,8 +51,6 @@ class CreateEvent extends Component{
                         <div style ={{textAlign: 'center'}} >
                             <a className="waves-effect waves-light btn dueit-login-button-inverted" href="#">Create Event</a>
                         </div>
-
-                        <Calendar/>
                     </form>
                 </div>
 
