@@ -10,7 +10,7 @@ class Header extends Component{
         return(
             <nav>
                 <div className = 'nav-wrapper'>
-                    <Link to={this.props.auth ? '/dashboard' : '/'}  
+                    <Link to={this.props.auth ? '/dashboard' : '/'} 
                     className= "brand-logo left"
                     >
                     <img src={logo}  className="headerLogo"/>

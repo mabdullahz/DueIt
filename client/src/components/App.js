@@ -6,6 +6,7 @@ import * as actions from '../actions';
 import Header from './Header'
 import SignUp from './SignUp';
 import Footer from './Footer';
+import CreateEvent from './CreateEvent';
 import Dashboard from './Dashboard';
 import './style.css';
 
@@ -38,6 +39,7 @@ class App extends Component {
 					<div>
 						<Route component={this.renderHeader()} />
 						<Route path='/' component={this.renderContent()} />
+						<Route exact path='/CreateEvent' component={CreateEvent} />
 
 						<Footer />
 					</div>
@@ -51,4 +53,4 @@ function mapStateToProps({ auth }){
     return {auth}     
 }
 
-export default connect(mapStateToProps, actions)(App);
+export default connect(mapStateToProps, actions)(App)
