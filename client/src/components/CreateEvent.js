@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Calendar from 'react-calendar';
+import DateTimePicker from 'react-datetime-picker';
+import DatePicker from 'react-date-picker';
 
 class CreateEvent extends Component{
     render(){
@@ -12,7 +15,7 @@ class CreateEvent extends Component{
 
                 <div className="div-center-aligned">
                     <h5 style={{display: 'inline-block', color:"rgb(235,235,235)", padding: "0px 20px"}}>
-                        Event type: 
+                        Event type:
                     </h5>
 
                     <select  style ={{display: 'inline-block', width:'30%',color: "rgb(82,45,109)"}}>
@@ -47,7 +50,7 @@ class CreateEvent extends Component{
                         <div style ={{textAlign: 'center'}} >
                             <a className="waves-effect waves-light btn dueit-login-button-inverted" href="#">Create Event</a>
                         </div>
-                        
+
 
                     </form>
                 </div>
