@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter,Route , Link, Redirect} from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from '../actions';
-
+import EventsPage from "./EventsPage"
 import Header from './Header'
 import SignUp from './SignUp';
 import Footer from './Footer';
@@ -41,7 +41,7 @@ class App extends Component {
 						<Route exact path='/dashboard' component={this.renderContent()} />
 						<Route exact path='/' component={this.renderContent()} />
 						<Route exact path='/CreateEvent' component={CreateEvent} />
-
+						<Route exact path='/EventsPage' component={EventsPage} />
 						<Footer />
 					</div>
 				</BrowserRouter>
