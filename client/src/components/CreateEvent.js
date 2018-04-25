@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Calendar from 'react-calendar';
+import DateTime from 'react-datetime-picker';
+import Date from 'react-date-picker';
 import { Row, Input } from 'react-materialize';
 
 class CreateEvent extends Component{
