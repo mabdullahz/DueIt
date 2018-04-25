@@ -1,62 +1,61 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { CollapsibleComponent, CollapsibleHead, CollapsibleContent } from 'react-collapsible-component'
+import Collapsible from './Collapsible';
 import './style.css'
+class LeftDiva extends Component{
+	render(){
+		return (
+			<div className="mainDiv">
+				<div className="leftDiv">
+					<h4>Hosted Events</h4>
+					<hr />
+					<Collapsible trigger="Musical Contest" className="myCollapsible">
+						<p>Here comes the event description</p>
+					</Collapsible>
+					<hr />
+					<Collapsible trigger="Justice League with friends" className="myCollapsible">
+						<p>Here comes the event description</p>
+					</Collapsible>
+					<hr />
+					<Collapsible trigger="Friends hangout" className="myCollapsible">
+						<p>Here comes the event description</p>
+					</Collapsible>
+				</div>
+			</div>
+		);	
+	}
+}
+class LeftDivb extends Component{
+	render(){
+		return(
+			<div className="mainDiv">
+				<div className="leftDiv">
+					<h4>Going To</h4>
+					<hr />
+					<Collapsible trigger="Musical Contest" className="myCollapsible">
+						<p>Here comes the event description</p>
+					</Collapsible>
+					<hr />
+					<Collapsible trigger="Justice League with friends" className="myCollapsible">
+						<p>Here comes the event description</p>
+					</Collapsible>
+					<hr />
+					<Collapsible trigger="Family time" className="myCollapsible">
+						<p>Here comes the event description</p>
+					</Collapsible>
+				</div>
+			</div>
+		);	
+	}
+}
 class EventsPage extends Component{
     render(){
         return(
-            <div>
-                <h2>Onging Events </h2>
-                <CollapsibleComponent>
-                    <CollapsibleHead>SE Exam</CollapsibleHead>
-                    <CollapsibleContent >
-                        Parh Lo
-                    </CollapsibleContent>
-
-                    <CollapsibleHead >SE Demo</CollapsibleHead>
-                    <CollapsibleContent >
-                        Kar lo
-                    </CollapsibleContent>
-
-                    <h2>Upcoming Events </h2>
-                    <CollapsibleHead>CS300 Exam</CollapsibleHead>
-                    <CollapsibleContent >
-                        Code Kar Lo
-                    </CollapsibleContent>
-
-                    <CollapsibleHead >Data Mining Project</CollapsibleHead>
-                    <CollapsibleContent >
-                        Mining Kar Lo
-                    </CollapsibleContent>
-                </CollapsibleComponent>
-
-                <div class="row">
-                    <div class="col s12 m6">
-                        <div class="card blue-grey darken-1">
-                            <div class="card-content white-text">
-                                <span class="card-title">My Feed</span>
-                                <p>You have no feed.</p>
-                            </div>
-                            <div class="card-action">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 m6">
-                        <div class="card blue-grey darken-1">
-                            <div class="card-content white-text">
-                                <span class="card-title">Hangout</span>
-                                <p>Abdullah is free after SE exam from 9:00pm to 11:00pm </p>
-                            </div>
-                            <div class="card-action">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+			<div>	
+				<LeftDiva />
+				<LeftDivb />
+			</div>
         );
     }
 }
