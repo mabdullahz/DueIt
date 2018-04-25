@@ -143,36 +143,36 @@ body{
 	margin: 0.7% 2% 0% 2%;
 }
 .userIco{
-	padding-left:2%;
-	max-width:10%;
+	float: right;
+	height:85%;
+	margin: 0.7% 2% 0% 2%;
 }
 .mainDiv{
-	padding-top:5%;
-	padding-left:5%;
 	width:100%;
 	height:100%;
 	color:rgb(82,41,109);
 	text-align:center;
-	font-style:bold;
 	display:flex;
+	padding: 2% 3%;
 }
 .leftDiv{
-	flex:80%;
 	background-color:white;
-	height:60%;
 	width: 60%;
-	max-width:65%;
 }
 .rightDiv{
-	flex:20%;
-	width:30%;
-	height:30%;
+	width:100%;
 	background-color:rgb(82,41,109);
 	color:white;
 	
 }
 .myCollapsible{
-	color:white;
-	background-color:rgb(82,41,109);
-	padding-top:2%;
+	text-align: left;
+	color:rgb(82,41,109);
+	background-color:white;
+	padding:1.5% 2%;
+	font-weight: bold;
+}
+
+hr{
+	margin: 0px;
 }

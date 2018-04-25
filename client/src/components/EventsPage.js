@@ -8,33 +8,19 @@ class LeftDiva extends Component{
 		return (
 			<div className="mainDiv">
 				<div className="leftDiv">
-					<h2>Hosted Events</h2>
+					<h4>Hosted Events</h4>
 					<hr />
-					<Collapsible trigger="Event1" className="myCollapsible">
-						<p>This is the collapsible content. It can be any element or React component you like.</p>
-						<p>It can even be another Collapsible component. Check out the next section!</p>
+					<Collapsible trigger="Musical Contest" className="myCollapsible">
+						<p>Here comes the event description</p>
 					</Collapsible>
 					<hr />
-					<Collapsible trigger="Event2" className="myCollapsible">
-						<p>This is the collapsible content. It can be any element or React component you like.</p>
-						<p>It can even be another Collapsible component. Check out the next section!</p>
+					<Collapsible trigger="Justice League with friends" className="myCollapsible">
+						<p>Here comes the event description</p>
 					</Collapsible>
 					<hr />
-					<Collapsible trigger="Event3" className="myCollapsible">
-						<p>This is the collapsible content. It can be any element or React component you like.</p>
-						<p>It can even be another Collapsible component. Check out the next section!</p>
+					<Collapsible trigger="Friends hangout" className="myCollapsible">
+						<p>Here comes the event description</p>
 					</Collapsible>
-					<hr />
-					<Collapsible trigger="Event4" className="myCollapsible">
-						<p>This is the collapsible content. It can be any element or React component you like.</p>
-						<p>It can even be another Collapsible component. Check out the next section!</p>
-					</Collapsible>
-					<hr />
-					<Collapsible trigger="Event5" className="myCollapsible">
-						<p>This is the collapsible content. It can be any element or React component you like.</p>
-						<p>It can even be another Collapsible component. Check out the next section!</p>
-					</Collapsible>
-					<hr />
 				</div>
 			</div>
 		);	
@@ -45,33 +31,19 @@ class LeftDivb extends Component{
 		return(
 			<div className="mainDiv">
 				<div className="leftDiv">
-					<h2>Going To</h2>
+					<h4>Going To</h4>
 					<hr />
-					<Collapsible trigger="Event1" className="myCollapsible">
-						<p>This is the collapsible content. It can be any element or React component you like.</p>
-						<p>It can even be another Collapsible component. Check out the next section!</p>
+					<Collapsible trigger="Musical Contest" className="myCollapsible">
+						<p>Here comes the event description</p>
 					</Collapsible>
 					<hr />
-					<Collapsible trigger="Event2" className="myCollapsible">
-						<p>This is the collapsible content. It can be any element or React component you like.</p>
-						<p>It can even be another Collapsible component. Check out the next section!</p>
+					<Collapsible trigger="Justice League with friends" className="myCollapsible">
+						<p>Here comes the event description</p>
 					</Collapsible>
 					<hr />
-					<Collapsible trigger="Event3" className="myCollapsible">
-						<p>This is the collapsible content. It can be any element or React component you like.</p>
-						<p>It can even be another Collapsible component. Check out the next section!</p>
+					<Collapsible trigger="Family time" className="myCollapsible">
+						<p>Here comes the event description</p>
 					</Collapsible>
-					<hr />
-					<Collapsible trigger="Event4" className="myCollapsible">
-						<p>This is the collapsible content. It can be any element or React component you like.</p>
-						<p>It can even be another Collapsible component. Check out the next section!</p>
-					</Collapsible>
-					<hr />
-					<Collapsible trigger="Event5" className="myCollapsible">
-						<p>This is the collapsible content. It can be any element or React component you like.</p>
-						<p>It can even be another Collapsible component. Check out the next section!</p>
-					</Collapsible>
-					<hr />
 				</div>
 			</div>
 		);	

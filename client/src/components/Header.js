@@ -13,11 +13,11 @@ class Header extends Component{
             <nav>
                 <div className = 'nav-wrapper'>
                     <Link to={this.props.auth ? '/dashboard' : '/'} className= "headerLogo">
-                        <img src={logo} className="headerLogo"/>
+                        <img src={logo} className="headerLogo" alt="logo"/>
                     </Link>
 
                     <Link to={this.props.auth ? '/EventsPage' : '/'} className= "clipButton">
-                        <img src={clip} className="clipButton"/>
+                        <img src={clip} className="clipButton" alt="user"/>
                     </Link>
                     
                     <a href = "/api/logout" className="button-logout">
@@ -25,11 +25,11 @@ class Header extends Component{
                     </a>
 
                     <Link to={this.props.auth ? '/settings' : '/'} className= "settingsButton">
-                        <img src={settings} className="settingsButton"/>
+                        <img src={settings} className="settingsButton" alt="settings"/>
                     </Link>
 
                     <Link to={this.props.auth ? '/dashboard' : '/'} className= "userIco">
-                        <img src={userIco} className="userIco"/>
+                        <img src={userIco} className="userIco" alt="usericon"/>
                     </Link>
                 </div>
             </nav>

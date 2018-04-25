@@ -1,25 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import logo from './resources/logoHeader.png';
 
 class SignUp extends Component{
-
-	renderContent(){
-        switch (this.props.auth) {
-            case null:
-                return;
-
-            case false:
-                return(
-                    <li>
-                        <a href="/auth/google">
-                            Login With Google
-                        </a>
-                    </li>
-                )
-        }
-    }
     render(){
     return(
 	        <div className="main-signup-wrap">

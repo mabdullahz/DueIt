@@ -252,10 +252,10 @@ Collapsible.propTypes = {
 }
 
 Collapsible.defaultProps = {
-  transitionTime: 400,
-  transitionCloseTime: null,
+  transitionTime: 180,
+  transitionCloseTime: 180,
   triggerTagName: 'span',
-  easing: 'linear',
+  easing: 'ease-in',
   open: false,
   classParentString: 'Collapsible',
   triggerDisabled: false,

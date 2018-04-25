@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Calendar from 'react-calendar';
-import DateTimePicker from 'react-datetime-picker';
-import DatePicker from 'react-date-picker';
+import { Row, Input } from 'react-materialize';
 
 class CreateEvent extends Component{
     render(){
@@ -24,10 +23,10 @@ class CreateEvent extends Component{
                     </select>
                 </div>
 
-                <div className="row div-center-aligned">
+                <div className="div-center-aligned">
                     <form className="col s12">
 
-                        <div className="row div-center-aligned" style={{width: "50%", padding: "4% 0%"}}>
+                        <div className="row div-center-aligned" style={{width: "50%"}}>
                             <div className="input-field col s6"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
                                 <input placeholder="Event Name" id="event_name" type="text" className="validate"></input>
                             </div>
@@ -41,15 +40,20 @@ class CreateEvent extends Component{
                         <div className="row div-center-aligned" style={{width: "50%"}}>
                             <div className="input-field col s6"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
                                 <input placeholder="Event time" id="event_time" type="text" className="validate"></input>
-                                <Calendar/>
                             </div>
 
                             <div className="input-field col s6"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
                                 <input placeholder="Event location" id="event_location" type="text" className="validate"></input>
                             </div>
                         </div>
+
+                        <div className="row div-center-aligned" style={{width: "50%"}}>
+
+                        </div>
+                        <Row>
+                        </Row>;
                         <div style ={{textAlign: 'center'}} >
-                            <a className="waves-effect waves-light btn dueit-login-button-inverted" href="#">Create Event</a>
+                            <a className="waves-effect waves-light btn dueit-login-button-inverted" href="/dashboard">Create Event</a>
                         </div>
                     </form>
                 </div>
