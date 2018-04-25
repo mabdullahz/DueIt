@@ -147,6 +147,23 @@ body{
 	height:85%;
 	margin: 0.7% 2% 0% 2%;
 }
+.settingsDiv{
+	height: 25%;
+	width: 100%;
+	text-align: center;
+	color: rgb(235,235,235);
+	align-content: center;
+}
+.settingsInput{
+	height: 10%;
+	width: 20%;
+	text-align: center;
+	color: rgb(235,235,235);
+}
+.purpleButton{
+	background-color: rgb(82,45,109);
+	color:rgb(235,235,235);
+}
 .mainDiv{
 	width:100%;
 	height:100%;

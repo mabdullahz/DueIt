@@ -5,6 +5,7 @@ import * as actions from '../actions';
 import EventsPage from "./EventsPage"
 import Header from './Header'
 import SignUp from './SignUp';
+import Settings from './Settings';
 import Footer from './Footer';
 import CreateEvent from './CreateEvent';
 import Dashboard from './Dashboard';
@@ -42,6 +43,7 @@ class App extends Component {
 						<Route exact path='/' render={() =>(this.props.auth ? (<Dashboard />) : (<SignUp />) )}/>
 						<Route exact path='/CreateEvent' render={() =>(this.props.auth ? (<CreateEvent />) : (<Redirect to = '/'/>) )}/>
 						<Route exact path='/EventsPage' render={() =>(this.props.auth ? (<EventsPage />) : (<Redirect to = '/'/>) )}/>
+						<Route exact path='/settings' render={() => (this.props.auth ? (<Settings />) : (<Redirect to='/' />))} />
 						<Footer />
 					</div>
 				</BrowserRouter>
