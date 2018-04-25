@@ -15,7 +15,7 @@ body{
 }
 
 .footer-bootom{
-	background-color: rgb(82,45,109);
+	background-color: rgb(220,220,220);
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -24,6 +24,7 @@ body{
 
 .bottom-copyright{
 	float: right;
+	padding: 0px 15px;
 }
 
 .nav-wrapper{
@@ -63,15 +64,10 @@ body{
 	color: rgb(235,235,235);
 }
 
-.footer-bootom{
-	background-color: rgb(235,235,235);
-	padding-right: 1%;
-	padding-left: 1%;
-}
-
 .headerLogo{
 	height:100%;
-	margin-left: 3%;
+	margin-left: 7%;
+	float:left;
 }
 .myLogo{
 	max-height:50px;
@@ -86,11 +82,14 @@ body{
 }
 
 .right-div-signup{
-	margin-left: 620px;
+	width: 70%; 
+	height: 100%;
+	float: right;
+	background-image: url("resources/purpleBackPatFinal.png")
 }
 
 .left-div-signup{
-	width: 35%; 
+	width: 30%; 
 	height: 100%; 
 	float: left;
 	background-color: rgb(235,235,235);
@@ -113,7 +112,7 @@ body{
 	width:50%;
 	display: block;
 	margin:auto;
-	margin-top: 10%;
+	margin-top: 25%;
 	margin-bottom: 10%;
 }
 
@@ -134,12 +133,14 @@ body{
 	text-align: left;
 }
 .clipButton{
-	padding-left:2%;
-	max-width:20%;
+	float: left;
+	height:90%;
+	margin: 0.5% 4% 0% 4%;
 }
 .settingsButton{
-	padding-left:60%;
-	max-width:72%;
+	float: right;
+	height:85%;
+	margin: 0.7% 2% 0% 2%;
 }
 .userIco{
 	padding-left:2%;
