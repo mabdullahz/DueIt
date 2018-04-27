@@ -12,7 +12,9 @@ class Settings extends Component {
                     <input placeholder="Last Name" type="text" className="settingsInput"></input>
                     <input placeholder="E-mail"  type="text" className="settingsInput"></input>
                     <input placeholder="Password"  type="text" className="settingsInput"></input>
-                    <button className="purpleButton"> Change </button>
+                    <div style ={{textAlign: 'center'}} >
+                        <a className="waves-effect waves-light btn dueit-login-button-inverted" href="/dashboard">Save Changes</a>
+                    </div>
                 </div>
             </div>
         )
