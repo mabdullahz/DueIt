@@ -53,7 +53,7 @@ class App extends Component {
 };
 
 function mapStateToProps({ auth }){
-    return {auth}     
+    return {auth}
 }
 
 export default connect(mapStateToProps, actions)(App)
