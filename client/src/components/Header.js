@@ -19,7 +19,7 @@ class Header extends Component{
                     <Link to={this.props.auth ? '/EventsPage' : '/'} className= "clipButton">
                         <img src={clip} className="clipButton" alt="user"/>
                     </Link>
-                    
+
                     <a href = "/api/logout" className="button-logout">
                             Log Out
                     </a>
@@ -31,6 +31,9 @@ class Header extends Component{
                     <Link to={this.props.auth ? '/dashboard' : '/'} className= "userIco">
                         <img src={userIco} className="userIco" alt="usericon"/>
                     </Link>
+                    <div className= "userName">
+                        {this.props.auth.username}
+                    </div>
                 </div>
             </nav>
         );
@@ -38,10 +41,10 @@ class Header extends Component{
 }
 
  // function mapStateToProps(state){
- //   return {auth: state.auth}     
+ //   return {auth: state.auth}
  //}
 function mapStateToProps({ auth }){
-    return {auth}     
+    return {auth}
 }
 
 

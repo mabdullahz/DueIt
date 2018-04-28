@@ -8,7 +8,7 @@ class Dashboard extends Component{
         return(
         	<div>
 	            <h1 className="general-heading"style ={{textAlign: 'center'}}>
-	                Dashboard! 
+	                Dashboard!
 	            </h1>
 
 	            <div style ={{textAlign: 'center'}} >

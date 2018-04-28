@@ -204,3 +204,8 @@ hr{
 	background-color:rgb(82,45,109);
 	width:30%;
 }
+
+.userName{
+	float: right;
+	color:rgb(82,45,109);
+}
