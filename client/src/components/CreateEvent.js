@@ -5,11 +5,24 @@ import Calendar from 'react-calendar';
 import DateTime from 'react-datetime-picker';
 import Date from 'react-date-picker';
 import { Row, Input } from 'react-materialize';
+import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
+import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
+import DatePicker from 'material-ui-pickers/DatePicker';
 
 class CreateEvent extends Component{
+    state = {
+        selectedDate: new Date(),
+      }
+
+      handleDateChange = (date) => {
+        this.setState({ selectedDate: date });
+      }
     render(){
+            const { selectedDate } = this.state;
         return(
+            
             <div className="div-center-aligned">
+
                 <h2 className="general-heading div-center-aligned">
                     Create Event
                 </h2>
@@ -24,6 +37,13 @@ class CreateEvent extends Component{
                         <option value="public">Public Event</option>
                     </select>
                 </div>
+
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <DatePicker
+                        value={selectedDate}
+                        onChange={this.handleDateChange}
+                    />
+                </MuiPickersUtilsProvider>
 
                 <div className="div-center-aligned">
                     <form className="col s12">
