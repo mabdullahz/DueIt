@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import Calendar from 'react-calendar';
-import DateTime from 'react-datetime-picker';
-import Date from 'react-date-picker';
 import { Row, Input } from 'react-materialize';
 import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
-import DatePicker from 'material-ui-pickers/DatePicker';
+import DateTimePicker from 'material-ui-pickers/DateTimePicker';
+
 
 class CreateEvent extends Component{
     state = {
@@ -20,7 +18,7 @@ class CreateEvent extends Component{
     render(){
             const { selectedDate } = this.state;
         return(
-            
+
             <div className="div-center-aligned">
 
                 <h2 className="general-heading div-center-aligned">
@@ -38,13 +36,6 @@ class CreateEvent extends Component{
                     </select>
                 </div>
 
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <DatePicker
-                        value={selectedDate}
-                        onChange={this.handleDateChange}
-                    />
-                </MuiPickersUtilsProvider>
-
                 <div className="div-center-aligned">
                     <form className="col s12">
 
@@ -61,7 +52,13 @@ class CreateEvent extends Component{
 
                         <div className="row div-center-aligned" style={{width: "50%"}}>
                             <div className="input-field col s6"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
-                                <input placeholder="Event time" id="event_time" type="text" className="validate"></input>
+
+                                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                    <DateTimePicker
+                                        value={selectedDate}
+                                        onChange={this.handleDateChange}
+                                    />
+                                </MuiPickersUtilsProvider>
                             </div>
 
                             <div className="input-field col s6"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
@@ -84,5 +81,5 @@ class CreateEvent extends Component{
         );
     }
 }
-
+//<input placeholder="Event time" id="event_time" type="text" className="validate"></input>
 export default CreateEvent;
