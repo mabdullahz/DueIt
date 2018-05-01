@@ -29,13 +29,13 @@ class Header extends Component{
                     </Link>
 
                     <Link to={this.props.auth ? '/dashboard' : '/'} className= "userIco">
-                        <img src={userIco} className="userIco" alt="usericon"/>
+                        <img src={this.props.auth.pictureURL} style={{borderRadius: '50%'}} className="userIco" alt="usericon"/>
                     </Link>
 
                     <div className= "userName">
                         {this.props.auth.username}
                     </div>
-                    
+
                 </div>
             </nav>
         );
