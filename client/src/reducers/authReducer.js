@@ -7,5 +7,5 @@ export default function (state = null, action) {
         default:
             return state;
     }
-    
+
 }

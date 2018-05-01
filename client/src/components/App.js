@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter,Route , Link, Redirect} from "react-router-dom";
+import { BrowserRouter,Route, Redirect} from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from '../actions';
-
+import EventsPage from "./EventsPage"
 import Header from './Header'
 import SignUp from './SignUp';
+import Settings from './Settings';
 import Footer from './Footer';
 import CreateEvent from './CreateEvent';
 import Dashboard from './Dashboard';
@@ -38,10 +39,11 @@ class App extends Component {
 				<BrowserRouter>
 					<div>
 						<Route component={this.renderHeader()} />
-						<Route exact path='/dashboard' component={this.renderContent()} />
-						<Route exact path='/' component={this.renderContent()} />
-						<Route exact path='/CreateEvent' component={CreateEvent} />
-
+						<Route exact path='/Dashboard' render={() =>(this.props.auth ? (<Dashboard />) : (<Redirect to = '/'/>) )}/>
+						<Route exact path='/' render={() =>(this.props.auth ? (<Dashboard />) : (<SignUp />) )}/>
+						<Route exact path='/CreateEvent' render={() =>(this.props.auth ? (<CreateEvent />) : (<Redirect to = '/'/>) )}/>
+						<Route exact path='/EventsPage' render={() =>(this.props.auth ? (<EventsPage />) : (<Redirect to = '/'/>) )}/>
+						<Route exact path='/settings' render={() => (this.props.auth ? (<Settings />) : (<Redirect to='/' />))} />
 						<Footer />
 					</div>
 				</BrowserRouter>
@@ -51,7 +53,7 @@ class App extends Component {
 };
 
 function mapStateToProps({ auth }){
-    return {auth}     
+    return {auth}
 }
 
 export default connect(mapStateToProps, actions)(App)

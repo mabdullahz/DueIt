@@ -15,7 +15,7 @@ body{
 }
 
 .footer-bootom{
-	background-color: rgb(82,45,109);
+	background-color: rgb(220,220,220);
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -24,6 +24,7 @@ body{
 
 .bottom-copyright{
 	float: right;
+	padding: 0px 15px;
 }
 
 .nav-wrapper{
@@ -63,17 +64,14 @@ body{
 	color: rgb(235,235,235);
 }
 
-.footer-bootom{
-	background-color: rgb(235,235,235);
-	padding-right: 1%;
-	padding-left: 1%;
-}
-
 .headerLogo{
 	height:100%;
-	margin-left: 3%;
+	margin-left: 7%;
+	float:left;
 }
-
+.myLogo{
+	max-height:50px;
+}
 .button-logout{
 	float: right;
 	color:rgb(82,45,109);
@@ -83,20 +81,31 @@ body{
 	margin:auto;
 }
 
+.main-signup-wrap{
+	width: 100%; 
+	height: 100%;
+	position: absolute;
+	overflow: hidden;
+}
+
 .right-div-signup{
-	margin-left: 620px;
+	width: 70%;
+	height: 100%;
+	float: right;
+	background-image: url("resources/purpleBackPatFinal.png")
 }
 
 .left-div-signup{
-	width: 35%; 
-	height: 100%; 
+	width: 30%;
+	height: 100%;
 	float: left;
 	background-color: rgb(235,235,235);
 	height: 100%;
 }
 
+
 .main-signup-wrap{
-	width: 100%; 
+	width: 100%;
 	height: 100%;
 	position: absolute;
 	overflow: hidden;
@@ -111,8 +120,8 @@ body{
 	width:50%;
 	display: block;
 	margin:auto;
-	margin-top: 10%;
-	margin-bottom: 10%;
+  margin-top: 15%;
+	margin-bottom: 7%;
 }
 
 .header-search-bar{
@@ -127,7 +136,84 @@ body{
 .div-center-aligned{
 	text-align: center;
 }
-
+;
 .div-left-aligned{
 	text-align: left;
+}
+.clipButton{
+	float: left;
+	height:90%;
+	margin: 0.5% 4% 0% 4%;
+}
+.settingsButton{
+	float: right;
+	height:85%;
+	margin: 0.7% 2% 0% 2%;
+}
+.userIco{
+	float: right;
+	height:85%;
+	margin: 0.7% 2% 0% 2%;
+}
+.settingsDiv{
+	height: 25%;
+	width: 100%;
+	text-align: center;
+	color: rgb(235,235,235);
+	align-content: center;
+}
+.settingsInput{
+	height: 10%;
+	width: 20%;
+	text-align: center;
+	color: rgb(235,235,235);
+}
+.purpleButton{
+	background-color: rgb(82,45,109);
+	color:rgb(235,235,235);
+}
+.mainDiv{
+	width:100%;
+	height:100%;
+	color:rgb(82,41,109);
+	text-align:center;
+	display:flex;
+	padding: 2% 3%;
+}
+.leftDiv{
+	background-color:white;
+	width: 60%;
+}
+.rightDiv{
+	width:100%;
+	background-color:rgb(82,41,109);
+	color:white;
+
+}
+.myCollapsible{
+	text-align: left;
+	color:rgb(82,41,109);
+	background-color:white;
+	padding:1.5% 2%;
+	font-weight: bold;
+}
+
+hr{
+	margin: 0px;
+}
+
+.signUpPurpleFooter
+{
+	height:3.5%;
+	position:fixed;
+	bottom:0;
+	z-index:3;
+	float:bottom;
+	background-color:rgb(82,45,109);
+	width:30%;
+}
+
+.userName{
+	float: right;
+	color:rgb(82,45,109);
 }
