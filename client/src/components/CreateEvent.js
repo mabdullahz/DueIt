@@ -5,12 +5,49 @@ import { Row, Input } from 'react-materialize';
 import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
 import DateTimePicker from 'material-ui-pickers/DateTimePicker';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui';
+import purple from 'material-ui/colors/purple';
 
+
+const materialTheme = createMuiTheme({
+  overrides: {
+    MuiPickersToolbar: {
+      toolbar: {
+        backgroundColor: purple['900'],
+      },
+    },
+    MuiPickersCalendarHeader: {
+      switchHeader: {
+         backgroundColor: purple['900'],
+         color: 'white',
+      },
+    },
+    MuiPickersDay: {
+      day: {
+        color: purple['900'],
+      },
+      selected: {
+        backgroundColor: purple['400'],
+      },
+      current: {
+        color: purple['900'],
+      },
+    },
+    MuiPickersModal: {
+      dialogAction: {
+        '& > button': {
+          color: purple['400'],
+        },
+      },
+    },
+  },
+})
 
 class CreateEvent extends Component{
     state = {
         selectedDate: new Date(),
       }
+
 
       handleDateChange = (date) => {
         this.setState({ selectedDate: date });
@@ -54,10 +91,12 @@ class CreateEvent extends Component{
                             <div className="input-field col s6"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
 
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                    <MuiThemeProvider theme={materialTheme}>
                                     <DateTimePicker
                                         value={selectedDate}
                                         onChange={this.handleDateChange}
                                     />
+                                    </MuiThemeProvider>
                                 </MuiPickersUtilsProvider>
                             </div>
 
@@ -69,8 +108,7 @@ class CreateEvent extends Component{
                         <div className="row div-center-aligned" style={{width: "50%"}}>
 
                         </div>
-                        <Row>
-                        </Row>;
+
                         <div style ={{textAlign: 'center'}} >
                             <a className="waves-effect waves-light btn dueit-login-button-inverted" href="/dashboard">Create Event</a>
                         </div>
