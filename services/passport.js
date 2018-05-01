@@ -5,6 +5,7 @@ const keys = require('../config/keys');
 
 
 const User = mongoose.model('users');
+const UserInfo = mongoose.model('userInfo')
 passport.serializeUser((user, done) => {
 	done(null, user.id);
 });
@@ -30,6 +31,15 @@ passport.use(
 		}
 
 		const user = await new User({username: profile.displayName,googleId: profile.id}).save()
+		const userInfo = await new UserInfo({ 
+			googleId: profile.id,
+			firstName: "",
+			lastName: "",
+			followTable: [],
+			eventIDs: [],
+			requests: [],
+			requestSent: [] 
+		}).save()
 		done(null, user);
 	})
 );
