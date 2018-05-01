@@ -21,12 +21,8 @@ class Header extends Component{
                     <Link to={this.props.auth ? '/EventsPage' : '/'} className= "clipButton">
                         <img src={clip} className="clipButton" alt="user"/>
                     </Link>
-                    <div className="header-username">
-                        {this.props.auth.username}
-                    </div>
                     <Dropdown id="dropdown-header" className="dropdown-header">
                         <Dropdown.Toggle className="dropdown-header-toggle">
-                            <Glyphicon glyph="user" className = ""/>
                         </Dropdown.Toggle>
                         <Dropdown.Menu >
                             <LinkContainer to={this.props.auth ? '/eventspage' : '/'}>
@@ -40,11 +36,15 @@ class Header extends Component{
                                 </MenuItem>
                             </LinkContainer>
                             <MenuItem divider />
+                            <MenuItem divider />
                             <MenuItem eventKey="3" href = "/api/logout">
                                 Log out
                             </MenuItem>
                         </Dropdown.Menu>
                     </Dropdown>
+                    <div className="header-username">
+                        {this.props.auth.username}
+                    </div>
                     <Link to={this.props.auth ? '/settings' : '/'} className= "settingsButton">
                         <img src={settings} className="settingsButton" alt="settings"/>
                     </Link>

@@ -38,7 +38,7 @@ class EventsPage extends Component{
 									Event description
 								</Panel.Body>
 							</Panel>
-						</PanelGroup>;
+						</PanelGroup>
 					</div>
 				</div>
 
@@ -71,7 +71,7 @@ class EventsPage extends Component{
 									Event description
 								</Panel.Body>
 							</Panel>
-						</PanelGroup>;
+						</PanelGroup>
 					</div>
 				</div>
 			</div>
