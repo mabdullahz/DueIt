@@ -77,6 +77,31 @@ body{
 	color:rgb(82,45,109);
 }
 
+.dropdown-header{
+	float: right;
+	margin: 1% 0%;
+}
+
+.dropdown-header-toggle{
+	background-color: rgb(82,45,109);
+}
+
+.dropdown-header-toggle:hover{
+	background-color: rgb(82,45,109);
+	color: rgb(235,235,235);
+}
+
+.dropdown-header-toggle:focus{
+	background-color: black;
+	color: rgb(235,235,235);
+}
+
+.dropdown-header p{
+	text-decoration: none;
+	float: right;
+	color:rgb(82,45,109);
+}
+
 .headingDashboard{
 	margin:auto;
 }
@@ -147,8 +172,8 @@ body{
 }
 .settingsButton{
 	float: right;
-	height:85%;
-	margin: 0.7% 2% 0% 2%;
+	height:80%;
+	margin: 1% 2% 0% 2%;
 }
 .userIco{
 	float: right;
@@ -178,7 +203,7 @@ body{
 	color:rgb(82,41,109);
 	text-align:center;
 	display:flex;
-	padding: 2% 3%;
+	padding: 1% 3%;
 }
 .leftDiv{
 	background-color:white;
@@ -213,7 +238,18 @@ hr{
 	width:30%;
 }
 
-.userName{
+.header-username{
 	float: right;
 	color:rgb(82,45,109);
+	font-size: 19px;
+	padding: 0.3% 0%;
+}
+
+.MuiInput-input-15{
+	color:rgb(235,235,235);
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover{
+	background-color: transparent;
+	text-align: center;
 }

@@ -52,7 +52,6 @@ class CreateEvent extends Component{
 
                         <div className="row div-center-aligned" style={{width: "50%"}}>
                             <div className="input-field col s6"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
-
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                     <DateTimePicker
                                         value={selectedDate}
