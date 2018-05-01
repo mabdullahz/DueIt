@@ -13,6 +13,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.0",
+    "moment": "*",
+    "react-big-calendar": "*",
     "date-fns": "^2.0.0-alpha.7",
     "material-ui": "^1.0.0-beta.43",
     "material-ui-pickers": "^1.0.0-rc.6",

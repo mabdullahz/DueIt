@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-
 class Dashboard extends Component{
     render(){
         return(
@@ -10,8 +9,7 @@ class Dashboard extends Component{
 	            <h1 className="general-heading"style ={{textAlign: 'center'}}>
 	                Dashboard!
 	            </h1>
-
-	            <div style ={{textAlign: 'center'}} >
+                <div style ={{textAlign: 'center'}} >
 		        	<Link to={"/createevent"} className="waves-effect waves-light btn dueit-login-button-inverted">
 		        		Create New Event
 		        	</Link>

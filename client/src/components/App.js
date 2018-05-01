@@ -11,7 +11,6 @@ import CreateEvent from './CreateEvent';
 import Dashboard from './Dashboard';
 import './style.css';
 
-
 class App extends Component {
 
 
