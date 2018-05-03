@@ -37,7 +37,7 @@ class Profile extends Component{
                 </div>
 
                 <div className='profilerow'>
-                    <div className="profilecolumn profileleft">
+                    <div className="profilecolumn profileright">
                             <h4>Hosted Events</h4>
                             <hr />
                             <PanelGroup accordion id="accordion-example">
