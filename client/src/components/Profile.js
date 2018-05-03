@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from '../actions';
+import { Link } from "react-router-dom";
 import { PanelGroup, Panel  } from "react-bootstrap";
 import './style.css';
 
@@ -12,21 +13,25 @@ class Profile extends Component{
     renderContent(){
         if(this.props.userInfo)
         {
-            
+
             return(
             <div className="profileMain">
                 <div className="profilerow">
                     <div className="profilecolumn profileleft">
-                        <img src="https://olympiad.lums.edu.pk/wp-content/uploads/2018/02/IMG20170114235216-e1518005077894.jpg" className="profileImage" alt="" />
+                        <img src={this.props.auth.pictureURL} className="profileImage" alt="" />
                         <div className="profileName">
-                            <p className="profileusername"> {this.props.userInfo['firstName']}</p>                   
-                            <button className="followbutton">Follow</button>
+                            <p className="profileusername"> {this.props.userInfo['firstName']}</p>
+                            <div style ={{textAlign: 'center'}} >
+            		        	<Link to={"/createevent"} className="waves-effect waves-light btn dueit-login-button-inverted">
+            		        		Follow
+            		        	</Link>
+            		        </div>
                         </div>
                     </div>
-                    <div className="profilecolumn profileright"> 
+                    <div className="profilecolumn profileright">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVu9QRe5_N0UmDFYdaOz1DCHeHpIFaDDGPTUN9SSKsXvYj9bgH" alt="" />
                         <div className="profileName">
-                            <p className="profileusername">Schedule Details</p>                   
+                            <p className="profileusername">Schedule Details</p>
                         </div>
                     </div>
                 </div>

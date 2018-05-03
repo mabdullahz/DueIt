@@ -25,7 +25,7 @@ class Header extends Component{
                         <Dropdown.Toggle className="dropdown-header-toggle">
                         </Dropdown.Toggle>
                         <Dropdown.Menu >
-                            <LinkContainer to={this.props.auth ? '/eventspage' : '/'}>
+                            <LinkContainer to={this.props.auth ? '/profile' : '/'}>
                                 <MenuItem eventKey="1">
                                         <p> My Profle </p>
                                 </MenuItem>
