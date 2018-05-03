@@ -29,16 +29,18 @@ passport.use(
 		if(existingUser){
 			return done(null,existingUser);
 		}
-
-		const user = await new User({username: profile.displayName,googleId: profile.id}).save()
-		const userInfo = await new UserInfo({ 
+		var resizedPic = profile._json.image.url;
+		resizedPic = resizedPic.slice(0,-5);
+		console.log(resizedPic)
+		const user = await new User({username: profile.displayName, googleId: profile.id, pictureURL: resizedPic}).save()
+		const userInfo = await new UserInfo({
 			googleId: profile.id,
-			firstName: "",
+			firstName: profile.displayName,
 			lastName: "",
 			followTable: [],
 			eventIDs: [],
 			requests: [],
-			requestSent: [] 
+			requestSent: []
 		}).save()
 		done(null, user);
 	})
