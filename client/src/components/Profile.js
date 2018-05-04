@@ -10,6 +10,34 @@ class Profile extends Component{
     componentDidMount() {
         this.props.fetchUserInfo();
     }
+    createPanelArray(eventsArray){
+        let panelArray=[]
+        eventsArray.forEach(element => {
+            panelArray.push(
+                <Panel eventKey={element['eventKey'].toString()}>
+                    <Panel.Heading>
+                        <Panel.Title toggle>{element['Title']}</Panel.Title>
+                    </Panel.Heading>
+                    <Panel.Body collapsible>
+                        {element['Description']}
+                    </Panel.Body>
+                </Panel>
+            )
+        });
+        if (panelArray.length == 0){
+            return (<Panel eventKey='1'>
+                    <Panel.Heading>
+                        <Panel.Title toggle>No Events to Display</Panel.Title>
+                    </Panel.Heading>
+                    <Panel.Body collapsible>
+
+                    </Panel.Body>
+            </Panel>);
+        }else{
+            return panelArray;
+        }
+        
+    }
     renderContent(){
         if(this.props.userInfo)
         {
@@ -41,60 +69,14 @@ class Profile extends Component{
                             <h4>Hosted Events</h4>
                             <hr />
                             <PanelGroup accordion id="accordion-example">
-                                <Panel eventKey="1">
-                                    <Panel.Heading>
-                                        <Panel.Title toggle>Musical Contest</Panel.Title>
-                                    </Panel.Heading>
-                                    <Panel.Body collapsible>
-                                        Event description
-                                    </Panel.Body>
-                                </Panel>
-                                <Panel eventKey="2">
-                                    <Panel.Heading>
-                                        <Panel.Title toggle>Justice League with friends</Panel.Title>
-                                    </Panel.Heading>
-                                    <Panel.Body collapsible>
-                                        Event description
-                                    </Panel.Body>
-                                </Panel>
-                                <Panel eventKey="3">
-                                    <Panel.Heading>
-                                        <Panel.Title toggle>Friends hangout</Panel.Title>
-                                    </Panel.Heading>
-                                    <Panel.Body collapsible>
-                                        Event description
-                                    </Panel.Body>
-                                </Panel>
+                                {this.createPanelArray(this.props.userInfo['eventIDs'][0])}
                             </PanelGroup>
                         </div>
                         <div className="profilecolumn profileright">
                             <h4>Going To</h4>
                             <hr />
                             <PanelGroup accordion id="accordion-example">
-                                <Panel eventKey="1">
-                                    <Panel.Heading>
-                                        <Panel.Title toggle>Musical Contest</Panel.Title>
-                                    </Panel.Heading>
-                                    <Panel.Body collapsible>
-                                        Event description
-                                    </Panel.Body>
-                                </Panel>
-                                <Panel eventKey="2">
-                                    <Panel.Heading>
-                                        <Panel.Title toggle>Justice League with friends</Panel.Title>
-                                    </Panel.Heading>
-                                    <Panel.Body collapsible>
-                                        Event description
-                                    </Panel.Body>
-                                </Panel>
-                                <Panel eventKey="3">
-                                    <Panel.Heading>
-                                        <Panel.Title toggle>Friends hangout</Panel.Title>
-                                    </Panel.Heading>
-                                    <Panel.Body collapsible>
-                                        Event description
-                                    </Panel.Body>
-                                </Panel>
+                                {this.createPanelArray(this.props.userInfo['eventIDs'][1])}
                             </PanelGroup>
                         </div>
                     </div>

@@ -40,7 +40,9 @@ passport.use(
 			followTable: [],
 			eventIDs: [],
 			requests: [],
-			requestSent: []
+			requestSent: [],
+			picurl: resizedPic
+
 		}).save()
 		done(null, user);
 	})

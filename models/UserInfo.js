@@ -8,7 +8,8 @@ const userInfoSchema = new Schema({
     followTable : [],
     eventIDs : [],
     requests : [],
-    requestSent : []
+    requestSent : [],
+    picurl:String
 });
 
 mongoose.model('userInfo', userInfoSchema);
