@@ -9,7 +9,6 @@ import DatePicker from 'material-ui-pickers/DatePicker';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui';
 import purple from 'material-ui/colors/purple';
 
-
 const materialTheme = createMuiTheme({
   overrides: {
     MuiPickersToolbar: {
@@ -91,7 +90,7 @@ class CreateEvent extends Component{
                         <div className="row div-center-aligned" style={{width: "50%"}}>
                             <div className="picker"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
                                 <div style ={{display: 'inline'}}>
-                                    Event Time  
+                                    Event Time
                                 </div>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                     <MuiThemeProvider theme={materialTheme}>
