@@ -10,6 +10,7 @@ import Footer from './Footer';
 import CreateEvent from './CreateEvent';
 import Dashboard from './Dashboard';
 import Profile from './Profile';
+import searchProfile from './searchProfile';
 import './style.css';
 
 
@@ -47,6 +48,7 @@ class App extends Component {
 						<Route exact path='/EventsPage' render={() =>(this.props.auth ? (<EventsPage />) : (<Redirect to = '/'/>) )}/>
 						<Route exact path='/settings' render={() => (this.props.auth ? (<Settings />) : (<Redirect to='/' />))} />
 						<Route exact path='/profile' component={Profile} />
+						<Route exact path='/searchProfile' component={searchProfile} />
 						<Footer />
 					</div>
 				</BrowserRouter>

@@ -313,3 +313,22 @@ hr{
 	font-style:bold;
 	color:rgb(235,235,235);
 }
+
+.myInput{
+	color:white;
+}
+.searchProfile{
+	text-align: center;
+	width: 50%;
+	height: auto;
+	border-radius:50%;
+	max-width:70%;
+	max-height:70%;
+	padding-top:2%;
+}
+
+.searchprofileMain{
+	text-align: center;
+	color:wheat;
+	font-size:40px;
+}
