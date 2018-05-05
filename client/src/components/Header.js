@@ -18,9 +18,10 @@ class Header extends Component{
                         <img src={logo} className="headerLogo" alt="logo"/>
                     </Link>
 
-                    <Link to={this.props.auth ? '/EventsPage' : '/'} className= "clipButton">
-                        <img src={clip} className="clipButton" alt="user"/>
+                    <Link to={this.props.auth ? '/searchprofile' : '/'} className="waves-effect waves-light btn dueit-login-button">
+                        Search
                     </Link>
+
                     <Dropdown id="dropdown-header" className="dropdown-header">
                         <Dropdown.Toggle className="dropdown-header-toggle">
                         </Dropdown.Toggle>
@@ -31,23 +32,30 @@ class Header extends Component{
                                 </MenuItem>
                             </LinkContainer>
                             <LinkContainer to={this.props.auth ? '/dashboard' : '/'}>
-                                <MenuItem eventKey="1">
+                                <MenuItem eventKey="2">
                                         <p> Followers </p>
                                 </MenuItem>
                             </LinkContainer>
-                            <MenuItem divider />
-                            <MenuItem divider />
+                            <LinkContainer to={this.props.auth ? '/settings' : '/'}>
+                                <MenuItem eventKey="3">
+                                        <p> Settings </p>
+                                </MenuItem>
+                            </LinkContainer>
                             <MenuItem eventKey="3" href = "/api/logout">
                                 Log out
                             </MenuItem>
                         </Dropdown.Menu>
                     </Dropdown>
+
                     <div className="header-username">
                         {this.props.auth.username}
                     </div>
-                    <Link to={this.props.auth ? '/settings' : '/'} className= "settingsButton">
-                        <img src={settings} className="settingsButton" alt="settings"/>
+                    
+
+                    <Link to={this.props.auth ? '/EventsPage' : '/'} className= "events-button-header">
+                        <img src={clip} className="header-events-button-image" alt="user"/>
                     </Link>
+
                 </div>
             </nav>
         );

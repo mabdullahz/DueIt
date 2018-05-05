@@ -35,6 +35,7 @@ class searchProfile extends Component{
             }
         })
     }
+    // (this.props.auth.googleId === ele['googleId'])
     generateSearchResults(searchArray){
         if(searchArray.length==0){return ''}
         let searchResults=[]
@@ -42,17 +43,19 @@ class searchProfile extends Component{
             if(element.length>0){
                 console.log(element)
                 element.forEach(ele =>{
-                    searchResults.push(<div className='profilecolumn columnleft'>
-                    <img src={ele['picurl']} className="searchProfile" alt="" style={{textAlign:'center'}}/>
-                    <div className="profileName">
-                        <p className="profileusername"> {ele['firstName']}</p>
-                        <div style ={{textAlign: 'center'}} >
-                            <Link to={`/follow?id=${ele['googleId']}`} className="waves-effect waves-light btn dueit-login-button-inverted">
-                                Follow
-                            </Link>
+                    searchResults.push(
+                        <div className='profilecolumn columnleft'>
+                            <img src={ele['picurl']} className="searchProfile" alt="" style={{textAlign:'center'}}/>
+                            <div className="profileName">
+                                <p className="profileusername"> {ele['firstName']}</p>
+                                <div className="search-result-profile-button">
+                                    <Link to={`/follow?id=${ele['googleId']}`} className="waves-effect waves-light btn dueit-login-button-inverted">
+                                        Follow
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
-                        </div>
-                 </div>)
+                 )
                 }) 
             }
         });
@@ -71,8 +74,8 @@ class searchProfile extends Component{
             <div className='searchPage'>
                 <div className='searchBox'>
                     <form onSubmit={this.handleSubmit}>
-                        <input type='text' placeholder='Enter Friend Name' className='myInput' onChange={this.handleChange}/>
-                        <Button type='submit' onClick={this.handleSubmit}><Glyphicon glyph="search" /></Button>
+                        <input type='text' placeholder='Search Events and People' className='myInput' onChange={this.handleChange}/>
+                        <Button type='submit' className = "waves-effect waves-light btn dueit-login-button-inverted" onClick={this.handleSubmit}><Glyphicon glyph="search" /> Search </Button>
                     </form>
                 </div>
                 <div >
