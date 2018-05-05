@@ -27,7 +27,7 @@ class searchProfile extends Component{
         axios.get(`/api/searchuser?${this.state.value}`).then(data=>{
             if(data.data){
                 this.setState({results:data.data})
-                console.log(this.state.results)
+                // console.log(this.state.results)
                 this.setState({value:''})
             }else{
                 this.setState({results:[]})
@@ -41,17 +41,19 @@ class searchProfile extends Component{
         searchArray.forEach(element => {
             if(element.length>0){
                 console.log(element)
-                searchResults.push(<div className='profilecolumn columnleft'>
-                    <img src={element[0]['picurl']} className="searchProfile" alt="" style={{textAlign:'center'}}/>
+                element.forEach(ele =>{
+                    searchResults.push(<div className='profilecolumn columnleft'>
+                    <img src={ele['picurl']} className="searchProfile" alt="" style={{textAlign:'center'}}/>
                     <div className="profileName">
-                        <p className="profileusername"> {element[0]['firstName']}</p>
+                        <p className="profileusername"> {ele['firstName']}</p>
                         <div style ={{textAlign: 'center'}} >
-                            <Link to={`/follow?id=${element[0]['googleId']}`} className="waves-effect waves-light btn dueit-login-button-inverted">
+                            <Link to={`/follow?id=${ele['googleId']}`} className="waves-effect waves-light btn dueit-login-button-inverted">
                                 Follow
                             </Link>
                         </div>
                         </div>
-                 </div>) 
+                 </div>)
+                }) 
             }
         });
         if(searchResults.length==0){
