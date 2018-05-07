@@ -4,7 +4,12 @@ import * as actions from '../actions';
 import { Link } from "react-router-dom";
 import { PanelGroup, Panel  } from "react-bootstrap";
 import './style.css';
-
+import moment from 'moment'
+import BigCalendar from 'react-big-calendar'
+// localizer for BigCalendar
+BigCalendar.momentLocalizer(moment)
+// specifying loaders
+require('react-big-calendar/lib/css/react-big-calendar.css')
 
 class Profile extends Component{
     componentDidMount() {
@@ -36,7 +41,7 @@ class Profile extends Component{
         }else{
             return panelArray;
         }
-        
+
     }
     renderContent(){
         if(this.props.userInfo)
@@ -57,9 +62,15 @@ class Profile extends Component{
                         </div>
                     </div>
                     <div className="profilecolumn profileright">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVu9QRe5_N0UmDFYdaOz1DCHeHpIFaDDGPTUN9SSKsXvYj9bgH" alt="" />
+                        <div style={{ maxWidth:'600px', maxHeight:'300px', color:'rgb(82,45,109)'}}>
+                        <BigCalendar
+                            style={{align:'center', height: '300px'}}
+                            events={[]}
+                        />
+                        </div>
+
                         <div className="profileName">
-                            <p className="profileusername">Schedule Details</p>
+                            <p className="profileusername" style={{ color:'rgb(82,45,109)'}}>Schedule Details</p>
                         </div>
                     </div>
                 </div>
