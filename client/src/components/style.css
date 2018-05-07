@@ -66,7 +66,7 @@ body{
 
 .headerLogo{
 	height:100%;
-	margin-left: 7%;
+	margin: 0% 3% 0% 3%;
 	float:left;
 }
 .myLogo{
@@ -79,7 +79,7 @@ body{
 
 .dropdown-header{
 	float: right;
-	margin: 1% 0%;
+	margin: 1% 2% 1% 0%;
 }
 
 .dropdown-header-toggle{
@@ -165,10 +165,10 @@ body{
 .div-left-aligned{
 	text-align: left;
 }
-.clipButton{
-	float: left;
-	height:90%;
-	margin: 0.5% 4% 0% 4%;
+.events-button-header{
+	float: right;
+	height:80%;
+	margin: 0% 2.5% 0% 1.5%;
 }
 .settingsButton{
 	float: right;
@@ -256,6 +256,7 @@ hr{
 
 .profilecolumn {
     float: left;
+    width: 20%;
 }
 
 .profileleft {
@@ -309,13 +310,16 @@ hr{
 	padding-top:2%;
 }
 .profileusername{
-	font-size:30px;
+	font-size:20px;
 	font-style:bold;
 	color:rgb(235,235,235);
 }
 
 .myInput{
-	color:white;
+	color:rgb(235,235,235);
+	width: 40% !important;
+	float:center;
+
 }
 .searchProfile{
 	text-align: center;
@@ -331,4 +335,18 @@ hr{
 	text-align: center;
 	color:wheat;
 	font-size:40px;
+	width: 100%;
+}
+
+.search-result-profile-button{
+	text-align: center;
+	bottom: 0;
+}
+
+.searchBox{
+	margin: 0 auto;
+}
+
+.header-events-button-image{
+	height: 95%;
 }
