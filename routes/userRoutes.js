@@ -30,7 +30,7 @@ module.exports =  (app) =>{
                                     ]
                             ]
             user['lastName'] = userid['pictureURL']
-            // user['eventIDs']=[]   
+            // user['eventIDs']=[]
             console.log(user)
             res.send(user)
         })
@@ -51,5 +51,10 @@ module.exports =  (app) =>{
                 });
                 // console.log(searchResults)
             }
+        })
+
+        app.get('/api/newEventCreated', async (req, res) => {
+            console.log("here")
+            console.log(req)
         })
 };

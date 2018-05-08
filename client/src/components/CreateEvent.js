@@ -49,10 +49,11 @@ const materialTheme = createMuiTheme({
 class CreateEvent extends Component{
 
 state = {
-        eventName: String,
+        eventName: "",
         startDate: new Date(),
         endDate: new Date(),
-        eventLocation : String
+        eventLocation: "",
+        eventDescription: "",
     }
 
       handleStartDateChange = (date) => {
@@ -64,12 +65,19 @@ state = {
       }
 
       handleEventNameChange = (name) => {
-          console.log(name);
-        this.setState({ eventName: name });
+        this.setState({ eventName: name.target.value });
       }
 
       handleEventLocationChange = (location) => {
-        this.setState({ eventLocation: location });
+        this.setState({ eventLocation: location.target.value });
+      }
+
+      handleEventDescriptionChange = (location) => {
+        this.setState({ eventDescription: location.target.value });
+      }
+
+      createEventClick = () => {
+          console.log(this.state)
       }
 
     render(){
@@ -102,7 +110,7 @@ state = {
                             </div>
 
                             <div className="input-field col s6"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
-                                <input placeholder="Event Description" id="event_description" type="text" className="validate"></input>
+                                <input onChange={this.handleEventDescriptionChange} placeholder="Event Description" id="event_description" type="text" className="validate"></input>
                             </div>
 
                         </div>
@@ -120,8 +128,8 @@ state = {
                                             Start Time
                                         </div>
                                         <DatePicker
-                                        value={this.state.startDate}
-                                        onChange={this.handleStartDateChange}
+                                            value={this.state.startDate}
+                                            onChange={this.handleStartDateChange}
                                         />
 
                                         <TimePicker
@@ -133,8 +141,8 @@ state = {
                                             End Time
                                         </div>
                                         <DatePicker
-                                        value={this.state.endDate}
-                                        onChange={this.handleEndDateChange}
+                                            value={this.state.endDate}
+                                            onChange={this.handleEndDateChange}
                                         />
 
                                         <TimePicker
@@ -154,7 +162,7 @@ state = {
                         </div>
 
                         <div style ={{textAlign: 'center'}} >
-                            <a className="waves-effect waves-light btn dueit-login-button-inverted" href="/dashboard">Create Event</a>
+                            <a onClick={this.createEventClick} className="waves-effect waves-light btn dueit-login-button-inverted" >Create Event</a>
                         </div>
                     </form>
                 </div>
