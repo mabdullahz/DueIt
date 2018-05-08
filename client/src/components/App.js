@@ -11,6 +11,9 @@ import CreateEvent from './CreateEvent';
 import Dashboard from './Dashboard';
 import Profile from './Profile';
 import searchProfile from './searchProfile';
+import Followers from './myFollowers'
+import Sent_Requests from './mySentRequests'
+import Received_Requests from './myReceivedRequests'
 import './style.css';
 
 
@@ -49,6 +52,9 @@ class App extends Component {
 						<Route exact path='/settings' render={() => (this.props.auth ? (<Settings />) : (<Redirect to='/' />))} />
 						<Route exact path='/profile' component={Profile} />
 						<Route exact path='/searchProfile' component={searchProfile} />
+						<Route exact path='/myfollowers' component={Followers} />
+						<Route exact path='/mysentrequests' component={Sent_Requests} />
+						<Route exact path='/myreceivedrequests' component={Received_Requests} />
 						<Footer />
 					</div>
 				</BrowserRouter>

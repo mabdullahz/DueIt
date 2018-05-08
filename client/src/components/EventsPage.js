@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 //import Collapsible from './Collapsible';
 import { PanelGroup, Panel  } from "react-bootstrap";
+// import * as actions from '../actions';
 import './style.css'
 
 class EventsPage extends Component{
-    render(){
+	render(){
         return(
         	<div>
 				<div className="mainDiv">
@@ -79,9 +80,9 @@ class EventsPage extends Component{
     }
 }
 
-function mapStateToProps({ auth }){
-    return {auth}
- }
+function mapStateToProps({ auth , userInfo }) {
+    return { auth : auth,userInfo: userInfo }
+}
 
 
 export default connect(mapStateToProps)(EventsPage);

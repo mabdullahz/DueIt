@@ -21,7 +21,7 @@ class Dashboard extends Component{
 
                 <div style={{ maxWidth:'600px', maxHeight:'300px', color:'white'}}>
                 <BigCalendar
-                    style={{align:'center', height: '300px'}}
+                    style={{textAlign:'center', height: '300px'}}
                     events={[]}
                 />
                 </div>
