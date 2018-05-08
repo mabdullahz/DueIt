@@ -15,6 +15,7 @@ body{
 }
 
 .footer-bootom{
+	height:22px;
 	background-color: rgb(220,220,220);
 	position: fixed;
 	left: 0;
@@ -156,6 +157,7 @@ body{
 
 .general-heading{
 	color: rgb(235,235,235);
+	font-size: 30px;
 }
 
 .div-center-aligned{
@@ -229,7 +231,7 @@ hr{
 
 .signUpPurpleFooter
 {
-	height:3.3%;
+	height:22px;
 	position:fixed;
 	bottom:0;
 	z-index:3;
@@ -271,7 +273,7 @@ hr{
 	text-align:center;
 	border-style:solid;
 	max-height:50%;
-	background-color:white;
+	background-color:rgb(235,235,235);
 }
 
 .profilerow:after {
@@ -349,4 +351,18 @@ hr{
 
 .header-events-button-image{
 	height: 95%;
+}
+
+.calendarDashboard{
+	width: 100%;
+	text-align:center;
+	padding:1%;
+	color:rgb(82,45,109);
+	background-color:rgb(235,235,235);
+	float:left;
+}
+
+.dashboardUpperDiv{
+	height: 70px;
+	margin: 0% 2%;
 }

@@ -14,31 +14,28 @@ class Dashboard extends Component{
     }
     render(){
         return(
-        	<div>
-	            <h1 className="general-heading"style ={{textAlign: 'center'}}>
-	                Dashboard!
-	            </h1>
-
-                <div style={{ maxWidth:'600px', maxHeight:'300px', color:'white'}}>
-                <BigCalendar
-                    style={{align:'center', height: '300px'}}
-                    events={[
-                    {
-                        id: 0,
-                        title: 'Computer Vision',
-                        start: new Date(2018, 4, 8),
-                        end: new Date(2018, 4, 10),
-                    }
-                ]}
-                />
+        	<div style={{padding:'1% 3%'}}>
+                <div style={{width:'70%', float: 'left'}}>
+                    <div className='dashboardUpperDiv'>
+        	            <h3 className="general-heading" style ={{textAlign: 'center', float: 'left'}}>
+        	               Current Schedule
+        	            </h3>
+                        <div>
+                            <Link to={"/createevent"} className="waves-effect waves-light btn dueit-login-button-inverted" style={{margin: '2.1% 0% 1% 0%', float: 'right'}}>
+                                Create New Event
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="calendarDashboard">
+                        <div>
+                            <BigCalendar
+                                style={{align:'center', height: '420px'}}
+                                events={[]}
+                            />
+                        </div>
+                    </div>
                 </div>
-
-                <div style ={{textAlign: 'center'}} >
-		        	<Link to={"/createevent"} className="waves-effect waves-light btn dueit-login-button-inverted">
-		        		Create New Event
-		        	</Link>
-		        </div>
-	        </div>
+            </div>
         );
     }
 }
