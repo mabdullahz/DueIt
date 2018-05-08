@@ -6,10 +6,6 @@ class SignUp extends Component{
     render(){
     return(
 	        <div className="main-signup-wrap">
-
-                <div className= "signUpPurpleFooter">
-                </div>
-
 	       		<div className="right-div-signup">
 			    </div>
 
@@ -20,6 +16,8 @@ class SignUp extends Component{
 	        		</div>
 			    </div>
 
+			    <div className= "signUpPurpleFooter">
+                </div>
 
 			</div>
     )

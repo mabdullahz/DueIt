@@ -10,6 +10,14 @@ import BigCalendar from 'react-big-calendar'
 BigCalendar.momentLocalizer(moment)
 // specifying loaders
 require('react-big-calendar/lib/css/react-big-calendar.css')
+var events =[
+            {
+            id: 0,
+            title: 'Computer Vision',
+            start: new Date(2018, 4, 8),
+            end: new Date(2018, 4, 10),
+            }
+        ]
 
 class Profile extends Component{
     componentDidMount() {
@@ -62,10 +70,11 @@ class Profile extends Component{
                         </div>
                     </div>
                     <div className="profilecolumn profileright">
+
                         <div style={{ maxWidth:'600px', maxHeight:'300px', color:'rgb(82,45,109)'}}>
                         <BigCalendar
                             style={{align:'center', height: '300px'}}
-                            events={[]}
+                            events={events}
                         />
                         </div>
 

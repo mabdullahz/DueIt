@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import * as actions from '../actions';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import { FormGroup, FormControl, ControlLabel , Glyphicon, Dropdown, Button } from "react-bootstrap";
+import { FormGroup, FormControl, ControlLabel , Glyphicon, Dropdown, Button, InputGroup } from "react-bootstrap";
 import './style.css';
 
 class searchProfile extends Component{
@@ -78,7 +78,7 @@ class searchProfile extends Component{
     }
     render(){
         return(
-            <div className='searchPage'>
+            <div style={{padding:'1% 3%'}}>
                 <div className='searchBox'>
                     <form onSubmit={this.handleSubmit}>
                         <input type='text' placeholder='Search Events and People' className='myInput' onChange={this.handleChange}/>
