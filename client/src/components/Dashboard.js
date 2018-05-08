@@ -22,7 +22,14 @@ class Dashboard extends Component{
                 <div style={{ maxWidth:'600px', maxHeight:'300px', color:'white'}}>
                 <BigCalendar
                     style={{align:'center', height: '300px'}}
-                    events={[]}
+                    events={[
+                    {
+                        id: 0,
+                        title: 'Computer Vision',
+                        start: new Date(2018, 4, 8),
+                        end: new Date(2018, 4, 10),
+                    }
+                ]}
                 />
                 </div>
 
