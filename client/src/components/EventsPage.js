@@ -3,78 +3,59 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 //import Collapsible from './Collapsible';
 import { PanelGroup, Panel  } from "react-bootstrap";
-// import * as actions from '../actions';
+import * as actions from '../actions';
 import './style.css'
 
 class EventsPage extends Component{
-	render(){
-        return(
-        	<div>
-				<div className="mainDiv">
-					<div className="leftDiv">
-						<h4>Hosted Events</h4>
-						<hr />
-						<PanelGroup accordion id="accordion-example">
-							<Panel eventKey="1">
-								<Panel.Heading>
-									<Panel.Title toggle>Musical Contest</Panel.Title>
-								</Panel.Heading>
-								<Panel.Body collapsible>
-									Event description
-								</Panel.Body>
-							</Panel>
-							<Panel eventKey="2">
-								<Panel.Heading>
-									<Panel.Title toggle>Justice League with friends</Panel.Title>
-								</Panel.Heading>
-								<Panel.Body collapsible>
-									Event description
-								</Panel.Body>
-							</Panel>
-							<Panel eventKey="3">
-								<Panel.Heading>
-									<Panel.Title toggle>Friends hangout</Panel.Title>
-								</Panel.Heading>
-								<Panel.Body collapsible>
-									Event description
-								</Panel.Body>
-							</Panel>
-						</PanelGroup>
-					</div>
-				</div>
+	componentDidMount() {
+		this.props.fetchUserInfo();
+	}
+	createPanelArray(eventsArray){
+        let panelArray=[]
+        eventsArray.forEach(element => {
+            panelArray.push(
+                <Panel eventKey={element['eventKey'].toString()}>
+                    <Panel.Heading>
+                        <Panel.Title toggle>{element['Title']}</Panel.Title>
+                    </Panel.Heading>
+                    <Panel.Body collapsible>
+                        {element['Description']}
+                    </Panel.Body>
+                </Panel>
+            )
+		});
+		if (panelArray.length == 0){
+            return (<Panel eventKey='1'>
+                    <Panel.Heading>
+                        <Panel.Title toggle>No Events to Display</Panel.Title>
+                    </Panel.Heading>
+                    <Panel.Body collapsible>
 
-				<div className="mainDiv">
-					<div className="leftDiv">
-						<h4>Going To</h4>
-						<hr />
-						<PanelGroup accordion id="accordion-example">
-							<Panel eventKey="1">
-								<Panel.Heading>
-									<Panel.Title toggle>Musical Contest</Panel.Title>
-								</Panel.Heading>
-								<Panel.Body collapsible>
-									Event description
-								</Panel.Body>
-							</Panel>
-							<Panel eventKey="2">
-								<Panel.Heading>
-									<Panel.Title toggle>Justice League with friends</Panel.Title>
-								</Panel.Heading>
-								<Panel.Body collapsible>
-									Event description
-								</Panel.Body>
-							</Panel>
-							<Panel eventKey="3">
-								<Panel.Heading>
-									<Panel.Title toggle>Friends hangout</Panel.Title>
-								</Panel.Heading>
-								<Panel.Body collapsible>
-									Event description
-								</Panel.Body>
-							</Panel>
-						</PanelGroup>
-					</div>
-				</div>
+                    </Panel.Body>
+            </Panel>);
+        }else{
+            return panelArray;
+        }
+	}
+	renderContent(j,title){
+		if(this.props.userInfo){
+			return(<div className="mainDiv">
+			<div className="leftDiv">
+				<h4>{title}</h4>
+				<hr />
+				<PanelGroup accordion id="accordion-example">
+					{this.createPanelArray(this.props.userInfo['eventIDs'][j])}
+				</PanelGroup>
+			</div>
+			</div>)
+		}
+	}
+	render(){
+		return(
+        	<div>
+				{this.renderContent(0,"Going to")}
+
+				{this.renderContent(1,"Hosted Events")}
 			</div>
         );
     }
@@ -85,4 +66,4 @@ function mapStateToProps({ auth , userInfo }) {
 }
 
 
-export default connect(mapStateToProps)(EventsPage);
+export default connect(mapStateToProps,actions)(EventsPage);

@@ -3,10 +3,13 @@ import { connect } from "react-redux";
 import * as actions from '../actions';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import { FormGroup, FormControl, ControlLabel , Glyphicon, Dropdown, Button, InputGroup } from "react-bootstrap";
+import { FormGroup, FormControl, ControlLabel , Glyphicon, Dropdown, Button } from "react-bootstrap";
 import './style.css';
 
 class searchProfile extends Component{
+    componentDidMount(){
+        this.props.fetchUser()
+    }
     constructor(props) {
         super(props);
         this.state = {
@@ -40,6 +43,9 @@ class searchProfile extends Component{
         console.log(event.target.value)
         axios.get(`/api/addfriend?${event.target.value}`).then(data=>{
             console.log(data.data)
+            if(data.data==1){
+                
+            }
         })
     }
     // (this.props.auth.googleId === ele['googleId'])
@@ -50,15 +56,22 @@ class searchProfile extends Component{
             if(element.length>0){
                 console.log(element)
                 element.forEach(ele =>{
+                    let userid = this.props.userInfo['googleId']
+                    let buttonToPlace = <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.addFriend}> Follow </Button>
+                    if(ele['followTable'].includes(userid)){
+                        buttonToPlace = <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.addFriend}> View Profile </Button>
+                    }else if(ele['requestSent'].includes(userid)){
+                        buttonToPlace = <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.addFriend}> Approve </Button>
+                    }else if(ele['requests'].includes(userid)){
+                        buttonToPlace = <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.addFriend}> Pending </Button>
+                    }
                     searchResults.push(
                         <div className='profilecolumn columnleft'>
                             <img src={ele['picurl']} className="searchProfile" alt="" style={{textAlign:'center'}}/>
                             <div className="profileName">
                                 <p className="profileusername"> {ele['firstName']}</p>
                                 <div className="search-result-profile-button">
-                                    <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.addFriend}> 
-                                        Follow
-                                    </Button>
+                                    {buttonToPlace}
                                 </div>
                             </div>
                         </div>
@@ -78,7 +91,7 @@ class searchProfile extends Component{
     }
     render(){
         return(
-            <div style={{padding:'1% 3%'}}>
+            <div className='searchPage'>
                 <div className='searchBox'>
                     <form onSubmit={this.handleSubmit}>
                         <input type='text' placeholder='Search Events and People' className='myInput' onChange={this.handleChange}/>

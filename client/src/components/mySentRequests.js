@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from '../actions';
-// import axios from 'axios';
+import axios from 'axios';
 import { Link } from "react-router-dom";
 import { FormGroup, FormControl, ControlLabel , Glyphicon, Dropdown, Button } from "react-bootstrap";
 import './style.css';
@@ -9,6 +9,15 @@ import './style.css';
 class Sent_Requests extends Component{
     componentDidMount() {
         this.props.fetchUserInfo();
+    }
+    removeRequest(event){
+        event.preventDefault()
+        axios.get(`/api/removerequest?${event.target.value}`).then(data=>{
+            if(data.data){
+                // event.target.text ="Removed"
+                // this.render()
+            }
+        })
     }
     makeFollowersDiv(followersArray){
         let followerDiv =[]
@@ -18,7 +27,7 @@ class Sent_Requests extends Component{
                     <div className="profileName">
                         <p className="profileusername"> {ele['firstName']}</p>
                         <div className="search-result-profile-button">
-                            <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.addFriend}> 
+                            <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.removeRequest}> 
                                 Remove
                             </Button>
                         </div>
