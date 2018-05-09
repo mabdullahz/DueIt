@@ -5,6 +5,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 require('./models/User');
 require('./models/UserInfo');
+require('./models/Event');
 require('./services/passport');
 
 

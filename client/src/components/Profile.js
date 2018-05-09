@@ -73,6 +73,8 @@ class Profile extends Component{
 
                         <div style={{ maxWidth:'600px', maxHeight:'300px', color:'rgb(82,45,109)'}}>
                         <BigCalendar
+                            selectable
+                            onSelectEvent={event => alert(event.title)}
                             style={{align:'center', height: '300px'}}
                             events={events}
                         />
