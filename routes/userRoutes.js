@@ -3,6 +3,7 @@ const urllib = require('url')
 const User = mongoose.model('users');
 const UserInfo = mongoose.model('userInfo')
 
+
 module.exports =  (app) =>{
     app.get('/api/userinfo', async (req, res) => {
             let id = req.user['googleId']

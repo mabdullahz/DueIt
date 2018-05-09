@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Row, Input } from 'react-materialize';
+import axios from 'axios';
 import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
 import TimePicker from 'material-ui-pickers/TimePicker';
@@ -9,7 +10,7 @@ import DatePicker from 'material-ui-pickers/DatePicker';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui';
 import purple from 'material-ui/colors/purple';
 
-/*
+
 const materialTheme = createMuiTheme({
   overrides: {
     MuiPickersToolbar: {
@@ -43,8 +44,8 @@ const materialTheme = createMuiTheme({
     },
   },
 })
-<MuiThemeProvider theme={materialTheme}>
-*/
+
+
 
 class CreateEvent extends Component{
 
@@ -77,7 +78,14 @@ state = {
       }
 
       createEventClick = () => {
-          console.log(this.state)
+          console.log(this.state.endDate)
+          //axios.post('/api/newEventCreated', this.state)
+             // .then(res => {
+             // this.setState({ data: res });
+             // })
+             // .catch(err => {
+             // console.error(err);
+             // });
       }
 
     render(){
@@ -127,6 +135,7 @@ state = {
                                         <div style ={{}}>
                                             Start Time
                                         </div>
+                                    <MuiThemeProvider theme={materialTheme}>
                                         <DatePicker
                                             value={this.state.startDate}
                                             onChange={this.handleStartDateChange}
@@ -149,7 +158,8 @@ state = {
                                           value={this.state.endDate}
                                           onChange={this.handleEndDateChange}
                                         />
-
+                                        
+                                        </MuiThemeProvider>
                                 </MuiPickersUtilsProvider>
                             </div>
 
