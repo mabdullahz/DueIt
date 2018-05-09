@@ -366,3 +366,24 @@ hr{
 	height: 70px;
 	margin: 0% 2%;
 }
+
+#popover-positioned-top{
+	color:rgb(82,45,109);
+	background-color:rgb(235,235,235);
+}
+
+.header-menu-image{
+	float: right;
+	height: 40%;
+	margin-top: 1.7%;
+	margin-left: 1.5%;
+	margin-right: 2.5%;
+}
+
+.popover-content{
+	text-align: center;
+	color:rgb(82,45,109);
+}
+
+#popover-positioned-bottom{
+}
