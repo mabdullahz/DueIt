@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const urllib = require('url')
 const User = mongoose.model('users');
 const UserInfo = mongoose.model('userInfo')
+const Event = mongoose.model('Events')
 
 
 module.exports =  (app) =>{
@@ -31,7 +32,7 @@ module.exports =  (app) =>{
                                         {eventKey:2,Title:"Kuch bhi ",Description:'Ki maa ka *****',status:'Going'},
                                         {eventKey:3,Title:"Okaray ki noor kay baray me khwahish",Description:'Kabhi nahi poori honi',status:'Going'}
                                     ]
-                            ]
+                                ]
             user['followTable']=followResults
             user['requests']= requestResults
             user['requestSent'] = sentRequestsResult
@@ -92,5 +93,18 @@ module.exports =  (app) =>{
             }else{
                 res.send("0")
             }
+        })
+
+        app.get('/api/newEventCreated/:eveName/:eveStart/:eveEnd/:eveLoc/:eveDes/:eveAcc', async (req, res, next) => {
+                console.log("SERVER NEW EVE")
+                const Eve = await new Event({
+                        googleId: req.user.googleId,
+                        location : req.params.eveLoc,
+                        eventName: req.params.eveName,
+                        description : req.params.eveDes,
+                        startTime : req.params.eveStart,
+                        endTime : req.params.eveEnd,
+                        accessKind : req.params.eveAcc
+                    }).save()
         })
 };

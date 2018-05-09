@@ -12,8 +12,8 @@ var events =[
             {
             id: 0,
             title: 'Computer Vision',
-            start: new Date(2018, 4, 8),
-            end: new Date(2018, 4, 10),
+            start: new Date(2018, 4, 8, 9, 30 , 0),
+            end: new Date(2018, 4, 10, 22, 45 , 0),
             }
         ]
 class Dashboard extends Component{

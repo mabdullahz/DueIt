@@ -3,9 +3,9 @@ const { Schema } = mongoose;
 
 const EventsSchema = new Schema({
     googleId: String,
-    eventID : String,
     location : String,
-    description : [],
+    eventName: String,
+    description : String,
     startTime : String,
     endTime : String,
     accessKind : String

@@ -55,6 +55,7 @@ state = {
         endDate: new Date(),
         eventLocation: "",
         eventDescription: "",
+        accessKind: "private"
     }
 
       handleStartDateChange = (date) => {
@@ -77,15 +78,14 @@ state = {
         this.setState({ eventDescription: location.target.value });
       }
 
+      handleAccessChange = (acc) => {
+        this.setState({ accessKind: acc.target.value });
+      }
+
       createEventClick = () => {
-          console.log(this.state.endDate)
-          //axios.post('/api/newEventCreated', this.state)
-             // .then(res => {
-             // this.setState({ data: res });
-             // })
-             // .catch(err => {
-             // console.error(err);
-             // });
+          axios.get(`/api/newEventCreated/${this.state.eventName}/${this.state.startDate}/${this.state.endDate}/${this.state.eventLocation}/${this.state.eventDescription}/${this.state.accessKind}`).then(res => {
+              
+          })
       }
 
     render(){
@@ -103,7 +103,7 @@ state = {
                         Event type:
                     </h5>
 
-                    <select  style ={{display: 'inline-block', width:'30%',color: "rgb(82,45,109)"}}>
+                    <select onChange={this.handleAccessChange} style ={{display: 'inline-block', width:'30%',color: "rgb(82,45,109)"}}>
                         <option value="private">Private Event</option>
                         <option value="public">Public Event</option>
                     </select>
@@ -137,11 +137,13 @@ state = {
                                         </div>
                                     <MuiThemeProvider theme={materialTheme}>
                                         <DatePicker
+                                            maxDate={this.state.endDate}
                                             value={this.state.startDate}
                                             onChange={this.handleStartDateChange}
                                         />
 
                                         <TimePicker
+                                          maxDate={this.state.endDate}
                                           value={this.state.startDate}
                                           onChange={this.handleStartDateChange}
                                         />
@@ -150,15 +152,17 @@ state = {
                                             End Time
                                         </div>
                                         <DatePicker
+                                            minDate={this.state.startDate}
                                             value={this.state.endDate}
                                             onChange={this.handleEndDateChange}
                                         />
 
                                         <TimePicker
+                                          minDate={this.state.startDate}
                                           value={this.state.endDate}
                                           onChange={this.handleEndDateChange}
                                         />
-                                        
+
                                         </MuiThemeProvider>
                                 </MuiPickersUtilsProvider>
                             </div>
