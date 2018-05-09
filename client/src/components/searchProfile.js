@@ -35,6 +35,13 @@ class searchProfile extends Component{
             }
         })
     }
+    addFriend(event){
+        event.preventDefault()
+        console.log(event.target.value)
+        axios.get(`/api/addfriend?${event.target.value}`).then(data=>{
+            console.log(data.data)
+        })
+    }
     // (this.props.auth.googleId === ele['googleId'])
     generateSearchResults(searchArray){
         if(searchArray.length==0){return ''}
@@ -49,9 +56,9 @@ class searchProfile extends Component{
                             <div className="profileName">
                                 <p className="profileusername"> {ele['firstName']}</p>
                                 <div className="search-result-profile-button">
-                                    <Link to={`/follow?id=${ele['googleId']}`} className="waves-effect waves-light btn dueit-login-button-inverted">
+                                    <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.addFriend}> 
                                         Follow
-                                    </Link>
+                                    </Button>
                                 </div>
                             </div>
                         </div>

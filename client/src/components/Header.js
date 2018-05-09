@@ -7,6 +7,7 @@ import userIco from './resources/user.png';
 import clip from './resources/clip.png';
 import { DropdownButton, MenuItem, ButtonToolbar, Glyphicon, Dropdown, Button } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap';
+import Followers from './myFollowers'
 
 class Header extends Component{
     render(){
@@ -31,17 +32,27 @@ class Header extends Component{
                                         <p> My Profle </p>
                                 </MenuItem>
                             </LinkContainer>
-                            <LinkContainer to={this.props.auth ? '/dashboard' : '/'}>
+                            <LinkContainer to={this.props.auth ? '/myfollowers' : '/'}>
                                 <MenuItem eventKey="2">
                                         <p> Followers </p>
                                 </MenuItem>
                             </LinkContainer>
-                            <LinkContainer to={this.props.auth ? '/settings' : '/'}>
+                            <LinkContainer to={this.props.auth ? '/mysentrequests' : '/'}>
                                 <MenuItem eventKey="3">
+                                        <p> Sent Requests </p>
+                                </MenuItem>
+                            </LinkContainer>
+                            <LinkContainer to={this.props.auth ? '/myreceivedrequests' : '/'}>
+                                <MenuItem eventKey="4">
+                                        <p> Received Requests </p>
+                                </MenuItem>
+                            </LinkContainer>
+                            <LinkContainer to={this.props.auth ? '/settings' : '/'}>
+                                <MenuItem eventKey="5">
                                         <p> Settings </p>
                                 </MenuItem>
                             </LinkContainer>
-                            <MenuItem eventKey="3" href = "/api/logout">
+                            <MenuItem eventKey="6" href = "/api/logout">
                                 Log out
                             </MenuItem>
                         </Dropdown.Menu>
