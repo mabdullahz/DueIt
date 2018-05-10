@@ -10,29 +10,27 @@ import BigCalendar from 'react-big-calendar'
 BigCalendar.momentLocalizer(moment)
 // specifying loaders
 require('react-big-calendar/lib/css/react-big-calendar.css')
-var events =[
-            {
-            id: 0,
-            title: 'Computer Vision',
-            start: new Date(2018, 4, 8),
-            end: new Date(2018, 4, 10),
-            }
-        ]
+let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
+
+
+var events =[]
 
 class Profile extends Component{
     componentDidMount() {
         this.props.fetchUserInfo();
+
     }
+
     createPanelArray(eventsArray){
         let panelArray=[]
         eventsArray.forEach(element => {
             panelArray.push(
-                <Panel eventKey={element['eventKey'].toString()}>
+                <Panel eventKey={element['_id'].toString()}>
                     <Panel.Heading>
-                        <Panel.Title toggle>{element['Title']}</Panel.Title>
+                        <Panel.Title toggle>{element['eventName']}</Panel.Title>
                     </Panel.Heading>
                     <Panel.Body collapsible>
-                        {element['Description']}
+                        {element['description']}
                     </Panel.Body>
                 </Panel>
             )
@@ -54,6 +52,29 @@ class Profile extends Component{
     renderContent(){
         if(this.props.userInfo)
         {
+            let eventsArray = this.props.userInfo['eventIDs']
+            let count = 0
+            events = []
+            eventsArray.forEach(eve => {
+                let startTimeArray = eve['startTime'].split(' ')
+                let endTimeArray = eve['endTime'].split(' ')
+
+                var startDateString = eve['startTime'];
+                var startDateObj = new Date(startDateString);
+                var startMomentObj = moment(startDateObj);
+
+                var endDateString = eve['endTime'];
+                var endDateObj = new Date(endDateString);
+                var endMomentObj = moment(endDateObj);
+
+                events.push({
+                    id: count,
+                    title: eve['eventName'],
+                    start: startDateObj,
+                    end: endDateObj,
+                })
+                count = count + 1
+            })
 
             return(
             <div className="profileMain">
@@ -74,6 +95,9 @@ class Profile extends Component{
                         <div style={{ maxWidth:'600px', maxHeight:'300px', color:'rgb(82,45,109)'}}>
                         <BigCalendar
                             selectable
+                            views={allViews}
+                            step={60}
+                            showMultiDayTimes
                             onSelectEvent={event => alert(event.title)}
                             style={{align:'center', height: '300px'}}
                             events={events}
@@ -91,14 +115,14 @@ class Profile extends Component{
                             <h4>Hosted Events</h4>
                             <hr />
                             <PanelGroup accordion id="accordion-example">
-                                {this.createPanelArray(this.props.userInfo['eventIDs'][0])}
+                                {this.createPanelArray(this.props.userInfo['eventIDs'])}
                             </PanelGroup>
                         </div>
                         <div className="profilecolumn profileright">
                             <h4>Going To</h4>
                             <hr />
                             <PanelGroup accordion id="accordion-example">
-                                {this.createPanelArray(this.props.userInfo['eventIDs'][1])}
+                                {this.createPanelArray(this.props.userInfo['eventIDs'])}
                             </PanelGroup>
                         </div>
                     </div>

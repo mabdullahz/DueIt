@@ -1,27 +1,53 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import moment from 'moment'
+import moment from 'moment';
+import * as actions from '../actions';
 import BigCalendar from 'react-big-calendar'
 // localizer for BigCalendar
 BigCalendar.momentLocalizer(moment)
 // specifying loaders
 require('react-big-calendar/lib/css/react-big-calendar.css')
-
-var events =[
-            {
-            id: 0,
-            title: 'Computer Vision',
-            start: new Date(2018, 4, 8, 9, 30 , 0),
-            end: new Date(2018, 4, 10, 22, 45 , 0),
-            }
-        ]
+let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
+var events =[]
 class Dashboard extends Component{
+    componentDidMount() {
+        this.props.fetchUserInfo();
+
+    }
     constructor () {
         super()
     }
-    render(){
-        return(
+
+    renderContent(){
+        if(this.props.userInfo)
+        {
+            let eventsArray = this.props.userInfo['eventIDs']
+            let count = 0
+            events = []
+            eventsArray.forEach(eve => {
+                let startTimeArray = eve['startTime'].split(' ')
+                let endTimeArray = eve['endTime'].split(' ')
+
+                var startDateString = eve['startTime'];
+                var startDateObj = new Date(startDateString);
+                var startMomentObj = moment(startDateObj);
+
+                var endDateString = eve['endTime'];
+                var endDateObj = new Date(endDateString);
+                var endMomentObj = moment(endDateObj);
+
+                events.push({
+                    id: count,
+                    title: eve['eventName'],
+                    start: startDateObj,
+                    end: endDateObj,
+                })
+                count = count + 1
+            })
+
+            return(
+
         	<div style={{padding:'1% 3%'}}>
                 <div style={{width:'70%', float: 'left'}}>
                     <div className='dashboardUpperDiv'>
@@ -38,6 +64,9 @@ class Dashboard extends Component{
                         <div>
                             <BigCalendar
                                 selectable
+                                views={allViews}
+                                step={60}
+                                showMultiDayTimes
                                 onSelectEvent={event => alert(event.title)}
                                 style={{align:'center', height: '420px'}}
                                 events={events}
@@ -47,12 +76,19 @@ class Dashboard extends Component{
                 </div>
             </div>
         );
+        }
     }
+    render(){
+        return(
+        <div>
+            {this.renderContent()}
+        </div>
+    )
 }
 
-function mapStateToProps({ auth }){
-    return {auth}
- }
+}
+function mapStateToProps({ auth , userInfo }) {
+    return { auth : auth,userInfo: userInfo }
+}
 
-
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, actions)(Dashboard)
