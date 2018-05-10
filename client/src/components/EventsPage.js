@@ -53,6 +53,9 @@ class EventsPage extends Component{
 	render(){
 		return(
         	<div>
+                <h3 className="general-heading" style ={{textAlign: 'center'}}>
+                    Your Events
+                </h3>
 				{this.renderContent(0,"Going to")}
 
 				{this.renderContent(1,"Hosted Events")}

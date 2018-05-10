@@ -48,6 +48,28 @@ class searchProfile extends Component{
             }
         })
     }
+
+    approveFriend(event){
+        event.preventDefault()
+        console.log(event.target.value)
+        axios.get(`/api/approvefriend?${event.target.value}`).then(data=>{
+            if(data.data){
+                // this.render()
+            }
+        })
+    }
+    removeRequest(event){
+        event.preventDefault()
+        axios.get(`/api/removerequest?${event.target.value}`).then(data=>{
+            if(data.data){
+                // hashHistory.push(`/searchprofile`)
+            }
+        })
+    }
+    viewUser(event){
+        event.preventDefault()
+        // hashHistory.push("/searchprofile")
+    }
     // (this.props.auth.googleId === ele['googleId'])
     generateSearchResults(searchArray){
         if(searchArray.length==0){return ''}
@@ -59,11 +81,11 @@ class searchProfile extends Component{
                     let userid = this.props.userInfo['googleId']
                     let buttonToPlace = <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.addFriend}> Follow </Button>
                     if(ele['followTable'].includes(userid)){
-                        buttonToPlace = <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.addFriend}> View Profile </Button>
+                        buttonToPlace =  <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} href={`/api/showprofile?${ele['googleId']}`}> View Profile </Button> 
                     }else if(ele['requestSent'].includes(userid)){
-                        buttonToPlace = <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.addFriend}> Approve </Button>
+                        buttonToPlace = <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.approveFriend}> Approve </Button>
                     }else if(ele['requests'].includes(userid)){
-                        buttonToPlace = <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.addFriend}> Pending </Button>
+                        buttonToPlace = <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.removeRequest}> Pending </Button>
                     }
                     searchResults.push(
                         <div className='profilecolumn columnleft'>

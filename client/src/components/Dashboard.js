@@ -63,11 +63,9 @@ class Dashboard extends Component{
                     <div className="calendarDashboard">
                         <div>
                             <BigCalendar
-                                selectable
                                 views={allViews}
                                 step={60}
                                 showMultiDayTimes
-                                onSelectEvent={event => alert(event.title)}
                                 style={{align:'center', height: '420px'}}
                                 events={events}
                             />

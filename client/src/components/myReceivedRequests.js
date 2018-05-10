@@ -15,7 +15,7 @@ class Received_Requests extends Component{
         console.log(event.target.value)
         axios.get(`/api/approvefriend?${event.target.value}`).then(data=>{
             if(data.data){
-                this.render()
+                // this.render()
             }
         })
     }

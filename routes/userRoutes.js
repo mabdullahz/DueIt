@@ -161,4 +161,47 @@ module.exports =  (app) =>{
                 let q1 = await UserInfo.findOneAndUpdate({googleId:userid},{$set:{eventIDs:mainUserEvents}}).exec()
                 res.send("1")
         })
+
+        app.get("/api/finduser",async (req,res)=>{
+            // let id = req.user['googleId']
+            const myreq = req['url'];
+            let params = myreq.split('?')
+            if(params.length>1){
+            let id = params[1]
+            let userid = await User.findOne({googleId:id});
+            let user = await UserInfo.findOne({googleId:id});
+            let arrayToSend =[]
+            let gId = user['googleId']
+            let followtable = user['followTable']
+            let followResults = await UserInfo.find({googleId:{$in:followtable}})
+            let requests = user ['requests']
+            let requestResults = await UserInfo.find({googleId:{$in:requests}})
+            let requestSent = user['requestSent']
+            let sentRequestsResult = await UserInfo.find({googleId:{$in:requestSent}})
+            let eventIDs = user['eventIDs']
+            let eventIDsResult = await Event.find({_id:{$in:eventIDs}})
+            user['firstName'] = userid['username']
+            user['eventIDs'] = eventIDsResult
+            user['followTable']=followResults
+            user['requests']= requestResults
+            user['requestSent'] = sentRequestsResult
+            console.log(user)
+            res.send(user)
+            }else{
+                res.send([])
+            }
+        })
+
+        app.get("/api/showprofile", async(req,res) => {
+            let userid = req.user['googleId']
+            const myreq = req['url']
+            let params = myreq.split('?')
+            if(params.length > 1){
+                let object = await UserInfo.findOne({googleId:userid})
+                let iffriends = object['followTable'].includes(params[1])
+                if (iffriends){
+                    res.redirect(`/viewsearchprofile?${params[1]}`)
+                }
+            }
+        })
 }

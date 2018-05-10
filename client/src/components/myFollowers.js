@@ -18,9 +18,7 @@ class Followers extends Component{
                     <div className="profileName">
                         <p className="profileusername"> {ele['firstName']}</p>
                         <div className="search-result-profile-button">
-                            <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} onClick={this.addFriend}> 
-                                View Profile
-                            </Button>
+                        <Button className="waves-effect waves-light btn dueit-login-button-inverted" value={ele['googleId']} href={`/api/showprofile?${ele['googleId']}`}> View Profile </Button> 
                         </div>
                     </div>
                 </div>)
