@@ -10,6 +10,7 @@ import BigCalendar from 'react-big-calendar'
 BigCalendar.momentLocalizer(moment)
 // specifying loaders
 require('react-big-calendar/lib/css/react-big-calendar.css')
+let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
 var events =[
             {
             id: 0,
@@ -74,6 +75,9 @@ class Profile extends Component{
                         <div style={{ maxWidth:'600px', maxHeight:'300px', color:'rgb(82,45,109)'}}>
                         <BigCalendar
                             selectable
+                            views={allViews}
+                            step={60}
+                            showMultiDayTimes
                             onSelectEvent={event => alert(event.title)}
                             style={{align:'center', height: '300px'}}
                             events={events}
