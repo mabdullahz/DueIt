@@ -14,12 +14,12 @@ class EventsPage extends Component{
         let panelArray=[]
         eventsArray.forEach(element => {
             panelArray.push(
-                <Panel eventKey={element['eventKey'].toString()}>
+                <Panel eventKey={element['_id'].toString()}>
                     <Panel.Heading>
-                        <Panel.Title toggle>{element['Title']}</Panel.Title>
+                        <Panel.Title toggle>{element['eventName']}</Panel.Title>
                     </Panel.Heading>
                     <Panel.Body collapsible>
-                        {element['Description']}
+                        {element['description']}
                     </Panel.Body>
                 </Panel>
             )
@@ -44,7 +44,7 @@ class EventsPage extends Component{
 				<h4>{title}</h4>
 				<hr />
 				<PanelGroup accordion id="accordion-example">
-					{this.createPanelArray(this.props.userInfo['eventIDs'][j])}
+					{this.createPanelArray(this.props.userInfo['eventIDs'])}
 				</PanelGroup>
 			</div>
 			</div>)

@@ -14,25 +14,14 @@ module.exports =  (app) =>{
             let gId = user['googleId']
             let followtable = user['followTable']
             let followResults = await UserInfo.find({googleId:{$in:followtable}})
-            let eventIDs = user ['eventIDs']
             let requests = user ['requests']
             let requestResults = await UserInfo.find({googleId:{$in:requests}})
             let requestSent = user['requestSent']
             let sentRequestsResult = await UserInfo.find({googleId:{$in:requestSent}})
+            let eventIDs = user['eventIDs']
+            let eventIDsResult = await Event.find({_id:{$in:eventIDs}})
             user['firstName'] = userid['username']
-            user['eventIDs'] = [
-                                    [
-                                        {eventKey:1,Title:"Talal ka viyah",Description:'Kabhi nahi hona',status:'Going'},
-                                        {eventKey:2,Title:"Sonu ki titu ki sweety",Description:'Ki maa ka *****',status:'Going'},
-                                        {eventKey:3,Title:"Team Lead ki neend",Description:'Kabhi nahi poori honi',status:'Going'}
-                                    ]
-                                ,
-                                    [
-                                        {eventKey:1,Title:"Saaim ka viyah",Description:'Kabhi nahi hona',status:'Going'},
-                                        {eventKey:2,Title:"Kuch bhi ",Description:'Ki maa ka *****',status:'Going'},
-                                        {eventKey:3,Title:"Okaray ki noor kay baray me khwahish",Description:'Kabhi nahi poori honi',status:'Going'}
-                                    ]
-                                ]
+            user['eventIDs'] = eventIDsResult
             user['followTable']=followResults
             user['requests']= requestResults
             user['requestSent'] = sentRequestsResult
@@ -154,6 +143,7 @@ module.exports =  (app) =>{
 
         app.get('/api/newEventCreated/:eveName/:eveStart/:eveEnd/:eveLoc/:eveDes/:eveAcc', async (req, res, next) => {
                 console.log("SERVER NEW EVE")
+                let userid = req.user.googleId
                 const Eve = await new Event({
                         googleId: req.user.googleId,
                         location : req.params.eveLoc,
@@ -163,5 +153,12 @@ module.exports =  (app) =>{
                         endTime : req.params.eveEnd,
                         accessKind : req.params.eveAcc
                     }).save()
+
+                let mainUserInfo = await UserInfo.findOne({googleId:userid})
+                let mainUserEvents = mainUserInfo['eventIDs']
+                //console.log(Eve['_id'])
+                mainUserEvents.push(Eve['_id'])
+                let q1 = await UserInfo.findOneAndUpdate({googleId:userid},{$set:{eventIDs:mainUserEvents}}).exec()
+                res.send("1")
         })
 }
