@@ -8,6 +8,14 @@ BigCalendar.momentLocalizer(moment)
 // specifying loaders
 require('react-big-calendar/lib/css/react-big-calendar.css')
 
+var events =[
+            {
+            id: 0,
+            title: 'Computer Vision',
+            start: new Date(2018, 4, 8, 9, 30 , 0),
+            end: new Date(2018, 4, 10, 22, 45 , 0),
+            }
+        ]
 class Dashboard extends Component{
     constructor () {
         super()
@@ -29,8 +37,10 @@ class Dashboard extends Component{
                     <div className="calendarDashboard">
                         <div>
                             <BigCalendar
+                                selectable
+                                onSelectEvent={event => alert(event.title)}
                                 style={{align:'center', height: '420px'}}
-                                events={[]}
+                                events={events}
                             />
                         </div>
                     </div>
