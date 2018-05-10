@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Row, Input } from 'react-materialize';
+import axios from 'axios';
 import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
 import TimePicker from 'material-ui-pickers/TimePicker';
@@ -9,7 +10,7 @@ import DatePicker from 'material-ui-pickers/DatePicker';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui';
 import purple from 'material-ui/colors/purple';
 
-/*
+
 const materialTheme = createMuiTheme({
   overrides: {
     MuiPickersToolbar: {
@@ -43,16 +44,18 @@ const materialTheme = createMuiTheme({
     },
   },
 })
-<MuiThemeProvider theme={materialTheme}>
-*/
+
+
 
 class CreateEvent extends Component{
 
 state = {
-        eventName: String,
+        eventName: "",
         startDate: new Date(),
         endDate: new Date(),
-        eventLocation : String
+        eventLocation: "",
+        eventDescription: "",
+        accessKind: "private"
     }
 
       handleStartDateChange = (date) => {
@@ -64,12 +67,25 @@ state = {
       }
 
       handleEventNameChange = (name) => {
-          console.log(name);
-        this.setState({ eventName: name });
+        this.setState({ eventName: name.target.value });
       }
 
       handleEventLocationChange = (location) => {
-        this.setState({ eventLocation: location });
+        this.setState({ eventLocation: location.target.value });
+      }
+
+      handleEventDescriptionChange = (location) => {
+        this.setState({ eventDescription: location.target.value });
+      }
+
+      handleAccessChange = (acc) => {
+        this.setState({ accessKind: acc.target.value });
+      }
+
+      createEventClick = () => {
+          axios.get(`/api/newEventCreated/${this.state.eventName}/${this.state.startDate}/${this.state.endDate}/${this.state.eventLocation}/${this.state.eventDescription}/${this.state.accessKind}`).then(res => {
+              
+          })
       }
 
     render(){
@@ -87,7 +103,7 @@ state = {
                         Event type:
                     </h5>
 
-                    <select  style ={{display: 'inline-block', width:'30%',color: "rgb(82,45,109)"}}>
+                    <select onChange={this.handleAccessChange} style ={{display: 'inline-block', width:'30%',color: "rgb(82,45,109)"}}>
                         <option value="private">Private Event</option>
                         <option value="public">Public Event</option>
                     </select>
@@ -102,7 +118,7 @@ state = {
                             </div>
 
                             <div className="input-field col s6"  style ={{display: 'inline', color:'rgb(235,235,235)'}}>
-                                <input placeholder="Event Description" id="event_description" type="text" className="validate"></input>
+                                <input onChange={this.handleEventDescriptionChange} placeholder="Event Description" id="event_description" type="text" className="validate"></input>
                             </div>
 
                         </div>
@@ -119,12 +135,15 @@ state = {
                                         <div style ={{}}>
                                             Start Time
                                         </div>
+                                    <MuiThemeProvider theme={materialTheme}>
                                         <DatePicker
-                                        value={this.state.startDate}
-                                        onChange={this.handleStartDateChange}
+                                            maxDate={this.state.endDate}
+                                            value={this.state.startDate}
+                                            onChange={this.handleStartDateChange}
                                         />
 
                                         <TimePicker
+                                          maxDate={this.state.endDate}
                                           value={this.state.startDate}
                                           onChange={this.handleStartDateChange}
                                         />
@@ -133,15 +152,18 @@ state = {
                                             End Time
                                         </div>
                                         <DatePicker
-                                        value={this.state.endDate}
-                                        onChange={this.handleEndDateChange}
+                                            minDate={this.state.startDate}
+                                            value={this.state.endDate}
+                                            onChange={this.handleEndDateChange}
                                         />
 
                                         <TimePicker
+                                          minDate={this.state.startDate}
                                           value={this.state.endDate}
                                           onChange={this.handleEndDateChange}
                                         />
 
+                                        </MuiThemeProvider>
                                 </MuiPickersUtilsProvider>
                             </div>
 
@@ -154,7 +176,7 @@ state = {
                         </div>
 
                         <div style ={{textAlign: 'center'}} >
-                            <a className="waves-effect waves-light btn dueit-login-button-inverted" href="/dashboard">Create Event</a>
+                            <a onClick={this.createEventClick} className="waves-effect waves-light btn dueit-login-button-inverted" >Create Event</a>
                         </div>
                     </form>
                 </div>
