@@ -12,7 +12,7 @@ export const fetchUserInfo = () => async (dispatch) => {
 };
 
 export const showUser = () => async (dispatch,user) => {
-    link = '/api/showUser?' + user
+    let link = '/api/showUser?' + user
     const res = await axios.get(link)
     dispatch({ type: FETCH_USER_INFO, payload: res.data });
 };

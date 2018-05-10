@@ -83,8 +83,10 @@ state = {
       }
 
       createEventClick = () => {
+
+          alert("Event Created Successfully")
           axios.get(`/api/newEventCreated/${this.state.eventName}/${this.state.startDate}/${this.state.endDate}/${this.state.eventLocation}/${this.state.eventDescription}/${this.state.accessKind}`).then(res => {
-              
+
           })
       }
 
@@ -176,7 +178,7 @@ state = {
                         </div>
 
                         <div style ={{textAlign: 'center'}} >
-                            <a onClick={this.createEventClick} className="waves-effect waves-light btn dueit-login-button-inverted" >Create Event</a>
+                            <a onClick={this.createEventClick} className="waves-effect waves-light btn dueit-login-button-inverted" href="/Dashboard" >Create Event</a>
                         </div>
                     </form>
                 </div>

@@ -7,13 +7,13 @@ import BigCalendar from 'react-big-calendar'
 BigCalendar.momentLocalizer(moment)
 // specifying loaders
 require('react-big-calendar/lib/css/react-big-calendar.css')
-
+let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
 var events =[
             {
             id: 0,
             title: 'Computer Vision',
             start: new Date(2018, 4, 8, 9, 30 , 0),
-            end: new Date(2018, 4, 10, 22, 45 , 0),
+            end: new Date(2018, 4, 10, 12, 45 , 0),
             }
         ]
 class Dashboard extends Component{
@@ -38,6 +38,9 @@ class Dashboard extends Component{
                         <div>
                             <BigCalendar
                                 selectable
+                                views={allViews}
+                                step={60}
+                                showMultiDayTimes
                                 onSelectEvent={event => alert(event.title)}
                                 style={{align:'center', height: '420px'}}
                                 events={events}
