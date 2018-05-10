@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Row, Input } from 'react-materialize';
 import axios from 'axios';
 import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
@@ -82,12 +82,26 @@ state = {
         this.setState({ accessKind: acc.target.value });
       }
 
-      createEventClick = () => {
-
-          alert("Event Created Successfully")
-          axios.get(`/api/newEventCreated/${this.state.eventName}/${this.state.startDate}/${this.state.endDate}/${this.state.eventLocation}/${this.state.eventDescription}/${this.state.accessKind}`).then(res => {
-
-          })
+      createEventClick = (event) => {
+          if(!this.state.eventName)
+          {
+              alert("Please Give Event Name")
+          }
+          else if(!this.state.eventDescription)
+          {
+              alert("Please Give Event Description")
+          }
+          else if(!this.state.eventLocation)
+          {
+              alert("Please Give Event Location")
+          }
+          else
+          {
+              axios.get(`/api/newEventCreated/${this.state.eventName}/${this.state.startDate}/${this.state.endDate}/${this.state.eventLocation}/${this.state.eventDescription}/${this.state.accessKind}`).then(res => {
+              alert("Event Created Successfully");
+              this.props.history.push('/dashboard');
+              })
+          }
       }
 
     render(){
@@ -150,7 +164,7 @@ state = {
                         </div>
 
                         <div style ={{textAlign: 'center'}} >
-                            <a onClick={this.createEventClick} className="waves-effect waves-light btn dueit-login-button-inverted" href="/Dashboard" >Create Event</a>
+                            <a onClick={this.createEventClick} className="waves-effect waves-light btn dueit-login-button-inverted">Create Event</a>
                         </div>
                     </form>
                 </div>
@@ -160,4 +174,4 @@ state = {
     }
 }
 //<input placeholder="Event time" id="event_time" type="text" className="validate"></input>
-export default CreateEvent;
+export default withRouter(CreateEvent);
